@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scar197124.github.io/Pericle/sitemap.xml
