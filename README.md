@@ -56,7 +56,7 @@ Commit: `Tune selector response and publish a diverse 25-story edition`
 ## Clean GitHub Pages release
 - Repository name: `Pericle`
 - Pages source: `main` branch, `/(root)`
-- Live URL: `https://scar197124.github.io/Pericle/`
+- Live URL: `https://scar197124.github.io/Perical/`
 - Facebook preview: `assets/pericle-facebook-preview.png` (1200 × 630)
 - Open Graph, Twitter Card, canonical URL, sitemap, robots, `.nojekyll`, and 404 fallback included.
 
