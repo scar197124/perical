@@ -1,2 +1,11 @@
 # Pericle
-Evidence-based good news with source links.
+
+> Verified, independently summarized stories of kindness, discovery, science, practical innovation, and human progress.
+
+- Home: https://scar197124.github.io/Perical/
+- Archive: https://scar197124.github.io/Perical/archive.html
+- Categories: https://scar197124.github.io/Perical/categories.html
+- Locations: https://scar197124.github.io/Perical/location.html
+- About and editorial approach: https://scar197124.github.io/Perical/about.html
+
+Each story links readers to its original source.

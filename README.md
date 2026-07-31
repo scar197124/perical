@@ -1,91 +1,98 @@
-# Pericle v14.0 — July 31 Twenty-Story Edition
+# Pericle — Verified Good News, Clearly Sourced
 
-## New Home edition
-- Published 20 verified, independently summarized stories dated July 31, 2026.
-- Mix: 3 Human + AI stories, 3 “Wow, Is This Real?” discoveries, 4 Good Samaritan stories, and 10 Innovation & Progress stories.
-- The previous 25-story Home edition is now archived through `isCurrent: false`.
-- Current count: 20. Archive count: 306.
-- Social preview image and Open Graph metadata remain in place.
+Pericle is a responsive good-news website for readers who want evidence-based stories of kindness, discovery, science, community progress, and practical innovation—without losing the link to the original source.
 
-Commit: `Publish July 31 twenty-story Pericle edition`
+**Live site:** https://scar197124.github.io/Perical/
 
-# Pericle v13.2 — Archive Separation + Home-Only Publishing
+![Pericle social preview](assets/pericle-social-preview.png)
 
-## Publishing cycle
-- The July 27 homepage edition has moved into Archive.
-- Home is now prepared for the next story collection.
-- Current stories appear only on Home.
-- Archive, Categories, and Location display archived stories only.
-- Archive can be filtered independently by edition, category, and location.
+## What visitors can do
 
-## Closing Thought
-- Ripple Effect remains the left takeaway card.
-- Closing Thought remains the right takeaway card.
-- Older stories continue using `why` as a fallback until dedicated closing thoughts are added.
+- Read the current edition on the Home page.
+- Browse completed editions in the Archive.
+- Explore stories by category or location.
+- Open the original reporting behind every summarized story.
 
-## Publishing note
-Do not publish this staging release as the live homepage until the next story collection has been added and marked with `isCurrent: true`.
+## Quick start
 
-Commit: `Archive current edition and separate stories by category and location`
+No build tools or package installation are required.
 
-# Pericle v13.0 — Responsive Wheel + Diverse 25-Story Edition
+1. Download or clone the repository.
+2. Open `index.html` in a browser for a local preview.
+3. To publish on GitHub Pages, use the `main` branch and select `/(root)` as the Pages source.
 
-## Publishing cycle
-- The July 22 current edition moved into Archive.
-- Home now carries 25 new July 23 stories.
-- Current stories remain outside Archive until the next edition update.
-- Categories and Location include both current and archived stories.
+```bash
+git clone https://github.com/scar197124/Perical.git
+cd Perical
+python3 -m http.server 8000
+```
 
-## Source diversity
-- 25 new stories from 22 named source organizations.
-- Mix includes NASA, WHO, MIT, UNICEF, universities, conservation groups, Canadian local reporting, community organizations, and animal-welfare reporting.
+Then open `http://localhost:8000`.
 
-## Wheel tuning
-- Immediate active-option highlighting while scrolling.
-- One filter update after the gesture settles.
-- Faster touch release, cleaner snap-to-center, keyboard support, focus treatment, and reduced desktop height.
+## Publishing a new edition
 
-Commit: `Tune selector response and publish a diverse 25-story edition`
+Story data lives in `stories.json` and `stories-data.js`. Current-edition stories use `isCurrent: true`; completed stories use `isCurrent: false` and appear in the Archive. Keep both data files synchronized when publishing.
 
+Before deployment:
 
-## v12.9 — Archive Edition Visibility Fix
-- Archive now identifies editions by full edition name instead of date alone.
-- Restores the July 22 Twenty-Five Fresh Good Stories homepage as its own Archive selection.
-- Keeps the earlier July 22 edition separate.
-- Sorts dated editions newest first.
-- Current July 23 edition remains Home-only.
+- Confirm every story has a working original-source link.
+- Check the story title, summary, ripple effect, and closing thought.
+- Verify Home, Archive, Categories, and Location on desktop and mobile.
+- Update the version query on CSS and JavaScript files when cache refresh is needed.
+- Update `sitemap.xml` when public page URLs change.
 
+## Social sharing and search discovery
 
-## v13.0 — Same-Day Editions, Mobile Selector Dock, New Edition
-- Archives the July 23 homepage and publishes 25 new current stories dated July 27, 2026.
-- Same-day archive editions receive First Edition, Second Edition, Third Edition labels automatically.
-- Adds a one-thumb mobile selector dock with previous/next story controls across Home, Archive, Categories, and Location.
-- Keeps filter wheels anchored while selecting and only moves to the reader after a story is tapped.
-- Preserves desktop layout and all existing story data.
+The project includes:
 
+- Open Graph and Twitter Card metadata
+- A 1200 × 630 social preview image
+- Canonical URLs and page-specific descriptions
+- `robots.txt` and `sitemap.xml`
+- JSON-LD structured data on the Home page
+- `.nojekyll` for clean GitHub Pages deployment
 
-## Clean GitHub Pages release
-- Repository name: `Pericle`
-- Pages source: `main` branch, `/(root)`
-- Live URL: `https://scar197124.github.io/Perical/`
-- Facebook preview: `assets/pericle-facebook-preview.png` (1200 × 630)
-- Open Graph, Twitter Card, canonical URL, sitemap, robots, `.nojekyll`, and 404 fallback included.
+Social preview image: `assets/pericle-social-preview.png`
 
+## Project structure
 
-## v13.3 correction
-- Restored the July 27, 2026 edition to Home as the current edition.
-- Earlier editions remain in Archive.
-- The $12,000 restaurant-owner story remains in the July 22, 2026 collection.
+```text
+index.html            Current edition
+archive.html          Completed editions
+categories.html       Category browsing
+location.html         Location browsing
+about.html            Mission and editorial approach
+stories.json          Story data in JSON
+stories-data.js       Browser-ready story data
+app.css               Responsive design
+app.js                Filtering and reader behavior
+assets/                Brand and sharing images
+```
 
+## Editorial principle
 
-## v13.4 edition-first browsing
-- Home shows the active edition only.
-- Archive opens the latest completed edition and orders all editions newest first.
-- Categories and Location include current and archived stories, sorted newest first with edition labels.
-- Same-day editions use stable sequence labels based on their master-data order.
+Pericle summarizes independently and points readers back to original reporting. The goal is not to pretend difficult events do not exist; it is to make verified human progress easier to see.
 
+## Current release
 
-## v13.7
-- Added July 29 balanced 25-story Home edition.
-- Archived the July 27 edition automatically through isCurrent status.
-- Unified selector-bar and display-panel geometry across Home, Archive, Categories, and Location.
+**v14.2 — README and Discoverability Upgrade**
+
+- Strengthened the first-screen project pitch and live-demo presentation.
+- Added a no-build quick start and publishing checklist.
+- Added page-specific descriptions, canonical URLs, and social metadata.
+- Added structured website data and improved sitemap signals.
+- Preserved the July 31 twenty-story edition and enriched storytelling.
+
+## Suggested GitHub repository metadata
+
+**Description:** Verified, source-linked stories of kindness, discovery, science, innovation, and human progress.
+
+**Topics:** `good-news`, `positive-news`, `human-interest`, `science-news`, `innovation`, `kindness`, `static-site`, `github-pages`
+
+## License
+
+No open-source license has been selected yet. All rights remain with the repository owner unless a license is added. Linked source reporting remains the property of its original publishers.
+
+## Suggested commit message
+
+`Upgrade README and improve Pericle search discoverability`
