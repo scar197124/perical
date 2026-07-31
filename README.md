@@ -2,7 +2,7 @@
 
 Pericle is a responsive good-news website for readers who want evidence-based stories of kindness, discovery, science, community progress, and practical innovation—without losing the link to the original source.
 
-**Live site:** https://scar197124.github.io/Pericle/
+**Live site:** https://scar197124.github.io/perical/
 
 ![Pericle social preview](assets/pericle-social-preview.png)
 
