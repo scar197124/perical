@@ -2,7 +2,7 @@
 
 Pericle is a responsive good-news website for readers who want evidence-based stories of kindness, discovery, science, community progress, and practical innovation—without losing the link to the original source.
 
-**Live site:** https://scar197124.github.io/Perical/
+**Live site:** https://scar197124.github.io/Pericle/
 
 ![Pericle social preview](assets/pericle-social-preview.png)
 
@@ -22,8 +22,8 @@ No build tools or package installation are required.
 3. To publish on GitHub Pages, use the `main` branch and select `/(root)` as the Pages source.
 
 ```bash
-git clone https://github.com/scar197124/Perical.git
-cd Perical
+git clone https://github.com/scar197124/Pericle.git
+cd Pericle
 python3 -m http.server 8000
 ```
 
@@ -75,7 +75,7 @@ Pericle summarizes independently and points readers back to original reporting. 
 
 ## Current release
 
-**v14.2 — README and Discoverability Upgrade**
+**v14.2.1 — Corrected Live URL**
 
 - Strengthened the first-screen project pitch and live-demo presentation.
 - Added a no-build quick start and publishing checklist.
@@ -95,4 +95,4 @@ No open-source license has been selected yet. All rights remain with the reposit
 
 ## Suggested commit message
 
-`Upgrade README and improve Pericle search discoverability`
+`Correct Pericle live-site URL across README and SEO metadata`

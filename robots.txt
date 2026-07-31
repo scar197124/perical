@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://scar197124.github.io/Perical/sitemap.xml
+Sitemap: https://scar197124.github.io/Pericle/sitemap.xml

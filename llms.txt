@@ -2,10 +2,10 @@
 
 > Verified, independently summarized stories of kindness, discovery, science, practical innovation, and human progress.
 
-- Home: https://scar197124.github.io/Perical/
-- Archive: https://scar197124.github.io/Perical/archive.html
-- Categories: https://scar197124.github.io/Perical/categories.html
-- Locations: https://scar197124.github.io/Perical/location.html
-- About and editorial approach: https://scar197124.github.io/Perical/about.html
+- Home: https://scar197124.github.io/Pericle/
+- Archive: https://scar197124.github.io/Pericle/archive.html
+- Categories: https://scar197124.github.io/Pericle/categories.html
+- Locations: https://scar197124.github.io/Pericle/location.html
+- About and editorial approach: https://scar197124.github.io/Pericle/about.html
 
 Each story links readers to its original source.
