@@ -4,7 +4,7 @@ Pericle is a responsive good-news website for readers who want evidence-based st
 
 **Live site:** https://scar197124.github.io/perical/
 
-![Pericle social preview](assets/pericle-social-preview-safe.png)
+![Pericle social preview](assets/pericle-social-preview-centered.png)
 
 ## What visitors can do
 
@@ -52,7 +52,7 @@ The project includes:
 - JSON-LD structured data on the Home page
 - `.nojekyll` for clean GitHub Pages deployment
 
-Social preview image: `assets/pericle-social-preview-safe.png`
+Social preview image: `assets/pericle-social-preview-centered.png`
 
 ## Project structure
 
@@ -75,7 +75,7 @@ Pericle summarizes independently and points readers back to original reporting. 
 
 ## Current release
 
-**v14.2.1 — Corrected Live URL**
+**v14.2.4 — Centered Social Preview**
 
 - Strengthened the first-screen project pitch and live-demo presentation.
 - Added a no-build quick start and publishing checklist.
@@ -95,8 +95,8 @@ No open-source license has been selected yet. All rights remain with the reposit
 
 ## Suggested commit message
 
-`Correct Pericle live-site URL across README and SEO metadata`
+`Replace social preview with centered Facebook-safe image`
 
 
-### v14.2.3 Facebook preview fix
-The social image now uses a safe-margin layout and a new filename to force Facebook to refresh its cached preview.
+### v14.2.4 Centered preview fix
+The social preview now uses a centered layout with the Pericle wordmark and supporting text safely inside Facebook and link-preview crop zones. The image filename was changed again to encourage social platforms to refresh their cached preview.
