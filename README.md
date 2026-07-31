@@ -1,3 +1,14 @@
+# Pericle v14.0 — July 31 Twenty-Story Edition
+
+## New Home edition
+- Published 20 verified, independently summarized stories dated July 31, 2026.
+- Mix: 3 Human + AI stories, 3 “Wow, Is This Real?” discoveries, 4 Good Samaritan stories, and 10 Innovation & Progress stories.
+- The previous 25-story Home edition is now archived through `isCurrent: false`.
+- Current count: 20. Archive count: 306.
+- Social preview image and Open Graph metadata remain in place.
+
+Commit: `Publish July 31 twenty-story Pericle edition`
+
 # Pericle v13.2 — Archive Separation + Home-Only Publishing
 
 ## Publishing cycle
