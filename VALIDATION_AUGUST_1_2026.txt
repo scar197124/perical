@@ -1,0 +1,11 @@
+PERICLE AUGUST 1, 2026 — STORY ORDER VALIDATION
+Total stories: 346
+Current stories: 20
+Archived stories: 326
+Unique IDs: 346/346
+Current unique titles: 20/20
+Current unique URLs: 20/20
+Placeholders in current stories: 0
+Story 1: At 13, He Built an AI Guardian After His Grandmother’s Fall
+Story 2: He Stopped His Van, Ran Into Traffic, and Carried a Child to Safety
+Asset cache version: 14.3.1
