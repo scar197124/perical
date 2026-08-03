@@ -100,3 +100,6 @@ No open-source license has been selected yet. All rights remain with the reposit
 
 ### v14.2.5 Ultra-safe preview fix
 The social preview now uses an even more conservative centered layout, with the Pericle wordmark and the supporting tagline pulled farther inward so Facebook and other preview crops are less likely to cut off the left or right edges of the text. The filename was changed again to encourage social platforms to refresh cached previews.
+
+## Automatic lead-story social preview
+Before publishing a new edition, run `python3 update_social_preview.py`. The script reads the first current story in `stories.json`, creates a unique 1200×630 Facebook/X image in `assets/`, and updates the Open Graph and Twitter tags in `index.html`. If image generation fails, the standard Pericle preview remains available as the fallback.
