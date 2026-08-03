@@ -1,0 +1,9 @@
+PERICLE VALIDATION — AUGUST 3, 2026
+Current stories: 20
+Archived stories: 346
+Total stories: 366
+Unique IDs: PASS
+Duplicate source URLs in new edition: PASS
+Required fields in new edition: PASS
+.nojekyll: PRESENT
+Cache version: 14.4.0
