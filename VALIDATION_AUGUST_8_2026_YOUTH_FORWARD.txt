@@ -1,0 +1,12 @@
+PERICLE VALIDATION — AUGUST 8, 2026 YOUTH-FORWARD
+Total master stories: 367
+Current homepage stories: 25
+Archived master stories: 342
+Duplicate IDs: 0
+Duplicate exact titles: 0
+Homepage unique IDs: 25/25
+Homepage unique URLs: 25/25
+Clear repeated-story archive entries removed: 24
+Remaining repeated source pages: 4 (shared roundup/press-release pages covering multiple distinct stories, not duplicate story records)
+Lead story: A 12-Year-Old Is Turning Footsteps and Everyday Motion Into Usable Electricity
+Cache: v14.7.0

@@ -1,4 +1,4 @@
-let STORIES=[];let selected=0;let filtered=[];let scope=[];let editionLabelMap=new Map();let editionRankMap=new Map();let activeFilter='All';let archiveFilters={edition:'All'};
+let STORIES=[];let selected=0;let filtered=[];let scope=[];let editionLabelMap=new Map();let editionRankMap=new Map();let activeFilter='All';let archiveFilters={edition:'All',category:'All',location:'All'};
 const PAGE=document.body.dataset.page||'home';
 const $=s=>document.querySelector(s);
 const esc=(s='')=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
@@ -58,7 +58,12 @@ function renderList(){
   }
   selected=Math.min(selected,Math.max(0,filtered.length-1));list.innerHTML=filtered.map((s,i)=>`<button class="story-btn ${i===selected?'active':''}" data-i="${i}"><strong>${esc(s.title)}</strong><span>${esc(s.mainCategory||s.category)} · ${esc(s.location)}</span><small>${esc(editionLabel(s.edition||s.editionDate||'Pericle archive'))}</small></button>`).join('');list.querySelectorAll('button').forEach(b=>b.onclick=()=>{selectStory(+b.dataset.i);if(matchMedia('(max-width:560px)').matches){showMobileDock();document.querySelector('.reader-panel')?.scrollIntoView({behavior:'smooth',block:'start'});}});$('#count').textContent=`${filtered.length} ${filtered.length===1?'story':'stories'}`;const wheelCount=$('#wheelResults');if(wheelCount)wheelCount.textContent=`${filtered.length} ${filtered.length===1?'story':'stories'}`;renderReader(filtered[selected]);updateMobileDock();}
 function applyArchiveFilters(){
-  filtered=sortNewestFirst(scope.filter(s=>archiveFilters.edition==='All'||archiveEdition(s)===archiveFilters.edition));
+  filtered=sortNewestFirst(scope.filter(s=>
+    (archiveFilters.edition==='All'||archiveEdition(s)===archiveFilters.edition)&&
+    (archiveFilters.category==='All'||(s.mainCategory||s.category)===archiveFilters.category)&&
+    (archiveFilters.location==='All'||s.location===archiveFilters.location)
+  ));
+  activeFilter=archiveFilters.edition==='All'?'All':archiveFilters.edition;
   selected=0;renderList();
 }
 function applyFilter(value){
@@ -77,12 +82,21 @@ function applyFilter(value){
 function setupArchiveFilters(){
   const t=$('#toolbar');if(!t)return;
   const editions=archiveEditionValues(scope);
-  const options=['<option value="All">All archived editions</option>',...editions.map(v=>`<option value="${esc(v)}">${esc(editionLabel(v))}</option>`)].join('');
-  t.className='edition-selector';
-  t.innerHTML=`<label for="editionSelect"><span>Editions</span><select id="editionSelect">${options}</select></label>`;
-  const latestEdition=editions[0]||'All';archiveFilters.edition=latestEdition;activeFilter=latestEdition;
-  const select=t.querySelector('select');select.value=latestEdition;
-  select.addEventListener('change',()=>{archiveFilters.edition=select.value;activeFilter=select.value;applyArchiveFilters();});
+  const categories=unique(scope,'mainCategory');
+  const locations=unique(scope,'location');
+  const editionOptions=['<option value="All">All archived editions</option>',...editions.map(v=>`<option value="${esc(v)}">${esc(editionLabel(v))}</option>`)].join('');
+  const categoryOptions=['<option value="All">All categories</option>',...categories.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`)].join('');
+  const locationOptions=['<option value="All">All locations</option>',...locations.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`)].join('');
+  t.className='archive-browser';
+  t.innerHTML=`<div class="archive-filter-grid">
+    <label for="editionSelect"><span>Edition</span><select id="editionSelect">${editionOptions}</select></label>
+    <label for="archiveCategorySelect"><span>Category</span><select id="archiveCategorySelect">${categoryOptions}</select></label>
+    <label for="archiveLocationSelect"><span>Location</span><select id="archiveLocationSelect">${locationOptions}</select></label>
+  </div>`;
+  archiveFilters={edition:'All',category:'All',location:'All'};activeFilter='All';
+  $('#editionSelect').addEventListener('change',e=>{archiveFilters.edition=e.target.value;applyArchiveFilters();});
+  $('#archiveCategorySelect').addEventListener('change',e=>{archiveFilters.category=e.target.value;applyArchiveFilters();});
+  $('#archiveLocationSelect').addEventListener('change',e=>{archiveFilters.location=e.target.value;applyArchiveFilters();});
 }
 function setupCategoryBrowser(){
   const t=$('#toolbar');if(!t)return;

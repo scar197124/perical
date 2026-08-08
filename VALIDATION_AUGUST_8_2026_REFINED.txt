@@ -1,0 +1,14 @@
+Pericle August 8, 2026 — Refined Youth Story Mix Validation
+===========================================================
+Current stories: 25
+Archived stories: 366
+Total stories: 391
+Visible youth-dedication panel: removed
+Youth/young-generation stories in current edition: 8+
+Integrity story added: fifth grader returned about US$8,700 found in a backpack
+High-impact youth innovation stories added: tornado warning, AI robot turtle, motion-to-electricity
+Homepage intro: neutral; youth theme is discovered through stories
+Archive filters: preserved
+JSON parse: passed
+JavaScript syntax: passed
+Frontend query version: 14.6.0

@@ -1,0 +1,15 @@
+PERICLE VALIDATION — AUGUST 8, 2026
+Current stories: 25
+Archived stories: 366
+Total stories: 391
+Youth-dedication stories in current edition: 6
+Unique IDs: PASS
+Current edition date: PASS (August 8, 2026)
+August 3 edition moved to archive: PASS
+Archive filters: Edition + Category + Location
+Required source fields in new edition: PASS
+stories.json / stories-data.js count match: PASS
+.nojekyll: PRESENT
+Homepage social preview: assets/lead-story-2026-08-08-good-aug08-001.png
+Cache version: 14.5.0
+Sitemap lastmod: 2026-08-08
