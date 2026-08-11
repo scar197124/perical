@@ -122,6 +122,7 @@ function setupToolbar(){
   t.remove();
 }
 function setupMobileDock(){
+  if(PAGE==='home')return;
   if(document.querySelector('.mobile-selector-dock'))return;
   const dock=document.createElement('div');dock.className='mobile-selector-dock';dock.setAttribute('aria-label','Mobile story controls');
   dock.innerHTML='<button type="button" data-dock="previous" aria-label="Previous story">‹</button><button type="button" class="dock-label" data-dock="selector">Stories</button><button type="button" data-dock="next" aria-label="Next story">›</button>';
@@ -131,7 +132,7 @@ function setupMobileDock(){
   dock.querySelector('[data-dock="selector"]').onclick=()=>{const target=$('#toolbar')?.children.length?$('#toolbar'):$('#storyList');target?.scrollIntoView({behavior:'smooth',block:'start'});};
 }
 function updateMobileDock(){const label=document.querySelector('.mobile-selector-dock .dock-label');if(!label)return;const group=activeFilter==='All'?(PAGE==='home'?'Current Edition':PAGE==='archive'?'All Editions':PAGE==='categories'?'All Categories':'All Locations'):(PAGE==='archive'?editionLabel(activeFilter):activeFilter);label.textContent=`${group} · ${selected+1}/${Math.max(filtered.length,1)}`;}
-function showMobileDock(){setupMobileDock();document.body.classList.add('mobile-reading');updateMobileDock();}
+function showMobileDock(){if(PAGE==='home')return;setupMobileDock();document.body.classList.add('mobile-reading');updateMobileDock();}
 function updateStats(){
   const current=STORIES.filter(currentEdition).length;
   const archived=STORIES.filter(s=>!currentEdition(s)).length;

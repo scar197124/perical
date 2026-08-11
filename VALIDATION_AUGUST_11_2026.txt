@@ -1,0 +1,5 @@
+Current edition: August 11, 2026
+Current stories: 25
+Previous editions preserved: yes
+Source URLs present: yes
+JSON/data JS synchronized: yes
