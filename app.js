@@ -114,11 +114,22 @@ function setupLocationBrowser(){
   t.innerHTML=`<div class="browse-heading"><span>Browse locations</span><small>Alphabetical places</small></div><label for="locationSelect" class="location-select-label"><span>Location</span><select id="locationSelect">${options}</select></label>`;
   t.querySelector('select').addEventListener('change',e=>applyFilter(e.target.value));
 }
+
+function setupGenreBrowser(){
+  const t=$('#toolbar');if(!t)return;
+  const values=unique(scope,'genre');
+  const options=['<option value="All">All genres</option>',...values.map(v=>`<option value="${esc(v)}">${esc(v)} · ${scope.filter(s=>s.genre===v).length}</option>`)].join('');
+  t.className='category-selector';
+  t.innerHTML=`<label for="genreSelect"><span>Genre</span><select id="genreSelect">${options}</select></label>`;
+  t.querySelector('select').addEventListener('change',e=>applyFilter(e.target.value));
+}
+
 function setupToolbar(){
   const t=$('#toolbar');if(!t)return;
   if(PAGE==='archive'){setupArchiveFilters();return;}
   if(PAGE==='categories'){setupCategoryBrowser();return;}
   if(PAGE==='location'){setupLocationBrowser();return;}
+  if(PAGE==='genre'){setupGenreBrowser();return;}
   t.remove();
 }
 function setupMobileDock(){
@@ -131,7 +142,7 @@ function setupMobileDock(){
   dock.querySelector('[data-dock="next"]').onclick=()=>{if(filtered.length){selectStory((selected+1)%filtered.length);updateMobileDock();}};
   dock.querySelector('[data-dock="selector"]').onclick=()=>{const target=$('#toolbar')?.children.length?$('#toolbar'):$('#storyList');target?.scrollIntoView({behavior:'smooth',block:'start'});};
 }
-function updateMobileDock(){const label=document.querySelector('.mobile-selector-dock .dock-label');if(!label)return;const group=activeFilter==='All'?(PAGE==='home'?'Current Edition':PAGE==='archive'?'All Editions':PAGE==='categories'?'All Categories':'All Locations'):(PAGE==='archive'?editionLabel(activeFilter):activeFilter);label.textContent=`${group} · ${selected+1}/${Math.max(filtered.length,1)}`;}
+function updateMobileDock(){const label=document.querySelector('.mobile-selector-dock .dock-label');if(!label)return;const group=activeFilter==='All'?(PAGE==='home'?'Current Edition':PAGE==='archive'?'All Editions':PAGE==='categories'?'All Categories':PAGE==='genre'?'All Genres':'All Locations'):(PAGE==='archive'?editionLabel(activeFilter):activeFilter);label.textContent=`${group} · ${selected+1}/${Math.max(filtered.length,1)}`;}
 function showMobileDock(){if(PAGE==='home')return;setupMobileDock();document.body.classList.add('mobile-reading');updateMobileDock();}
 function updateStats(){
   const current=STORIES.filter(currentEdition).length;
@@ -149,7 +160,7 @@ function updateStats(){
   }
 }
 const bootStories=()=>{
-  const data=window.STORIES;
+  const data=window.PERICLE_STORIES || window.STORIES;
   STORIES=Array.isArray(data)?data:[];buildEditionLabels(STORIES);
   if(!STORIES.length){
     const reader=$('#reader');
