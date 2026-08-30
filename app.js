@@ -71,6 +71,7 @@ function applyFilter(value){
   if(!value||value==='All')filtered=sortNewestFirst(scope);
   else if(PAGE==='categories')filtered=sortNewestFirst(scope.filter(s=>(s.mainCategory||s.category)===value));
   else if(PAGE==='location')filtered=sortNewestFirst(scope.filter(s=>s.location===value));
+  else if(PAGE==='genre')filtered=sortNewestFirst(scope.filter(s=>s.genre===value));
   else filtered=sortNewestFirst(scope);
   selected=0;renderList();
   document.querySelectorAll('[data-browse-value]').forEach(b=>{
@@ -167,7 +168,7 @@ const bootStories=()=>{
     if(reader)reader.innerHTML='<p class="empty">No story records were found in the embedded data.</p>';
     return;
   }
-  scope=PAGE==='home'?STORIES.filter(currentEdition):PAGE==='archive'?STORIES.filter(s=>!currentEdition(s)):STORIES;
+  scope=PAGE==='home'?STORIES.filter(currentEdition):['archive','categories','location','genre'].includes(PAGE)?STORIES.filter(s=>!currentEdition(s)):STORIES;
   scope=sortNewestFirst(scope);
   filtered=[...scope];
   setupToolbar();

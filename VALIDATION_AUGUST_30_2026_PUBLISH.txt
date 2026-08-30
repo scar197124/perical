@@ -1,0 +1,12 @@
+PASS
+Current stories: 25
+Archived stories: 467
+Total stories: 492
+August 16 AI-powered robot sea turtle story: archived (isCurrent=false)
+Homepage scope: current only
+Archive scope: archived only
+Categories scope: archived only
+Location scope: archived only
+Genre scope: archived only
+Genre filter: fixed
+Cache version: 16.1.0
