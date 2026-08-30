@@ -1,0 +1,10 @@
+PERICLE AUGUST 30 2026 PREVIEW VALIDATION
+=========================================
+Total stories: 492
+Current stories: 25
+Archived stories: 467
+New IDs: good-aug30-001 .. good-aug30-025
+Duplicate IDs: 0
+Missing required story fields: 0
+Homepage cache version: 16.0.0
+Upload status: PREVIEW ONLY / NOT UPLOADED
