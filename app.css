@@ -716,12 +716,21 @@ body::before{
   }
   .story-btn{
     min-height:90px;
+    height:auto;
     padding:15px 54px 14px 16px;
     touch-action:manipulation;
     -webkit-tap-highlight-color:rgba(240,189,69,.18);
     user-select:none;
     -webkit-user-select:none;
   }
+  .story-btn strong{
+    display:block;
+    overflow:visible;
+    -webkit-line-clamp:unset;
+    -webkit-box-orient:initial;
+    overflow-wrap:anywhere;
+  }
+  .story-btn.active::before{display:none}
   .story-btn strong,.story-btn span,.story-btn small{pointer-events:none}
   .story-btn::after{right:17px}
   .story-btn:active{
