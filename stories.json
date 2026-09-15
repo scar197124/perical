@@ -1,5 +1,335 @@
 [
   {
+    "title": "Three Young People Returned a Wallet With €205 to Its Owner",
+    "category": "Everyday Honesty",
+    "mainCategory": "Good Samaritans",
+    "originalCategory": "Everyday Honesty",
+    "genre": "Good Samaritans",
+    "location": "Valdemoro, Madrid, Spain",
+    "summary": "Three minors found a wallet containing €205 on a street in Valdemoro and took it directly to the local police. Officers identified the owner and returned both the wallet and the money.",
+    "why": "The decision was quiet and immediate: they found something valuable, recognized that it belonged to somebody else and chose the responsible path without needing a reward.",
+    "ripple": "Visible examples of everyday honesty can strengthen trust and give other young people a simple model for what civic responsibility looks like in practice.",
+    "source": "Cadena SER",
+    "sourceUrl": "https://cadenaser.com/cmadrid/2026/09/09/tres-menores-de-valdemoro-devuelven-una-cartera-con-205-euros-que-encontraron-en-la-calle-ser-madrid-sur/",
+    "evidence": "Cadena SER reported on September 9, 2026 that the three minors delivered the wallet to Policía Local de Valdemoro and that its owner recovered it.",
+    "uncertainty": "The report does not identify the young people or provide their exact ages.",
+    "closingThought": "Character often appears in the few seconds when nobody is telling you what to do.",
+    "newsDate": "September 9, 2026",
+    "id": "good-sep15-001",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A 13-Year-Old Turned a Summer Car Wash Into Community Support",
+    "category": "Youth Giving",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Youth Giving",
+    "genre": "Good Samaritans",
+    "location": "Dublin, California, USA",
+    "summary": "Zayd Badar started Kindness Car Wash during summer break, washed about 60 vehicles and raised roughly $2,100. He committed half of the proceeds to local organizations addressing hunger, homelessness and family safety.",
+    "why": "Zayd connected entrepreneurship with giving from the beginning instead of treating generosity as something to add only after a business succeeds.",
+    "ripple": "A small neighbourhood business can teach practical skills while directing money and attention toward organizations already helping local families.",
+    "source": "Dublin Patch",
+    "sourceUrl": "https://patch.com/california/dublin/amp/34630196/dublin-teen-raises-2-100-washing-cars-gives-half-to-charity",
+    "evidence": "Patch reported the project on August 11, 2026 and identified Open Heart Kitchen and Tri-Valley Haven as intended beneficiaries.",
+    "uncertainty": "The reported total reflected the campaign at publication time and may have increased afterward.",
+    "closingThought": "A garden hose, a driveway and a decision to share became a working lesson in community enterprise.",
+    "newsDate": "August 11, 2026",
+    "id": "good-sep15-002",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A Student-Led 10-Kilometre Swim Raised Support for Disadvantaged Youth",
+    "category": "Youth Leadership",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Youth Leadership",
+    "genre": "Community",
+    "location": "Kingston, Victoria, Australia",
+    "summary": "Year 12 student Angus Liddell organized a 10-kilometre team charity swim that brought 20 young people together and raised nearly $10,000. Kingston later named him its 2026 Young Citizen of the Year.",
+    "why": "He transformed an individual strength—swimming—into an organized event where other young people could contribute together.",
+    "ripple": "Youth-led fundraisers can support immediate needs while showing participants that planning, teamwork and persistence can create measurable community impact.",
+    "source": "City of Kingston",
+    "sourceUrl": "https://www.kingston.vic.gov.au/council/news/latest-news/youth-awards-2026",
+    "evidence": "The City of Kingston announced its youth award recipients in September 2026 and described Angus’s leadership, service and charity swim.",
+    "uncertainty": "The city described the amount as nearly $10,000 rather than publishing a final audited total.",
+    "closingThought": "Leadership became visible one lap—and one teammate—at a time.",
+    "newsDate": "September 10, 2026",
+    "id": "good-sep15-003",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A Dubai Teen Built a Free Carpool Service After Seeing School Traffic Grow",
+    "category": "Youth Enterprise",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Youth Enterprise",
+    "genre": "Innovation & Discovery",
+    "location": "Dubai, United Arab Emirates",
+    "summary": "Seventeen-year-old Anvith Yalamanchili created Community Carpool after his brother’s school commute grew sharply. The free service matches people travelling similar routes and had attracted about 1,000 registrations by early September.",
+    "why": "The project began with an ordinary family problem, but Anvith recognized that many nearby households were experiencing the same waste of time and road space.",
+    "ripple": "Shared school journeys could reduce congestion and emissions while helping families coordinate transportation without adding another paid service.",
+    "source": "The National",
+    "sourceUrl": "https://www.thenationalnews.com/news/uae/2026/09/02/teenage-entrepreneur-sets-up-carpool-website-to-ease-brothers-school-commute/",
+    "evidence": "The National profiled Anvith and the Community Carpool platform on September 2, 2026.",
+    "uncertainty": "Registrations do not equal completed shared journeys, and safety, participation and traffic effects require continued measurement.",
+    "closingThought": "A longer school run became a prompt to redesign the trip for an entire community.",
+    "newsDate": "September 2, 2026",
+    "id": "good-sep15-004",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "An 11-Year-Old Designed a Low-Cost Moss Filter to Study Lead Removal",
+    "category": "Clean Water",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Clean Water",
+    "genre": "Innovation & Discovery",
+    "location": "New Jersey, USA",
+    "summary": "Nithya Tammana developed BioLayer, a small filter using pebbles, sand, activated charcoal and sphagnum moss. Reported project testing found substantial lead removal at a materials cost below $38.",
+    "why": "She focused on affordability as part of the engineering problem, recognizing that a water treatment idea matters only if people can realistically access it.",
+    "ripple": "Student prototypes like this can open useful research questions about low-cost filtration materials and encourage more young people to connect environmental science with public health.",
+    "source": "The Times of India",
+    "sourceUrl": "https://timesofindia.indiatimes.com/science/discovery/meet-nithya-tammana-the-11-year-old-new-jersey-inventor-who-built-a-sub-38-moss-filter-that-can-remove-up-to-95-of-lead-from-drinking-water/articleshow/134009516.cms",
+    "evidence": "The Times of India profiled Nithya and her BioLayer project on September 13, 2026.",
+    "uncertainty": "This is a student prototype, not a certified drinking-water system; independent testing for contaminants, pathogens, durability and safe disposal would be required.",
+    "closingThought": "A serious public-health question can begin with inexpensive materials and a young person willing to test an idea.",
+    "newsDate": "September 13, 2026",
+    "id": "good-sep15-005",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "Two 14-Year-Olds Built a Robot to Collect Microplastics From Water",
+    "category": "Environmental Engineering",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Environmental Engineering",
+    "genre": "Innovation & Discovery",
+    "location": "Yuma, Arizona, USA",
+    "summary": "Brandon Miranda and Adriel Magana spent about six months developing MP Guard, a notebook-sized surface robot assembled with accessible materials including LEGO, pool noodles, 3D-printed parts and coconut-husk fibre filtration.",
+    "why": "When funding ruled out their first drone concept, they redesigned around what they could obtain—a practical lesson in engineering under real constraints.",
+    "ripple": "Further development could help explore inexpensive ways to collect floating plastic particles while the project itself gives other students a replicable example of iterative design.",
+    "source": "The Economic Times",
+    "sourceUrl": "https://economictimes.indiatimes.com/magazines/panache/two-14-year-old-arizona-schoolboys-built-robot-to-remove-microplastics-from-water-using-lego-duct-tape-and-pool-noodles/articleshow/134135680.cms",
+    "evidence": "The Economic Times published details of the students, materials, development process and pool demonstration on September 12, 2026.",
+    "uncertainty": "The prototype was demonstrated in a small pool; effectiveness, selectivity and durability in rivers or oceans remain unproven.",
+    "closingThought": "Limited resources did not end the idea—they forced the young engineers to make it more inventive.",
+    "newsDate": "September 12, 2026",
+    "id": "good-sep15-006",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A Grade 7 Student Built a Test to Help Families Waste Less Milk",
+    "category": "Food-Waste Science",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Food-Waste Science",
+    "genre": "Innovation & Discovery",
+    "location": "Morriston, Ontario, Canada",
+    "summary": "Wesley Goodridge created “Test Before You Toss,” exploring whether ATP measurements could provide better information about milk freshness than a printed best-before date alone. The project won junior gold at the 2026 Canada-Wide Science Fair.",
+    "why": "Wesley turned a daily household uncertainty into a testable scientific question with a direct connection to food waste.",
+    "ripple": "A practical freshness indicator could eventually help households make better-informed decisions, though a consumer-ready tool would require further development and validation.",
+    "source": "The Times of India",
+    "sourceUrl": "https://timesofindia.indiatimes.com/world/rest-of-world/meet-wesley-goodridge-the-grade-7-canadian-student-who-built-a-device-to-test-milk-freshness-before-throwing-it-away-he-won-a-10000-scholarship/articleshow/133606949.cms",
+    "evidence": "The Times of India reported on August 29, 2026 that Wesley won junior gold, a challenge award and a $10,000 university scholarship.",
+    "uncertainty": "ATP can indicate biological activity but the project is not yet a validated household food-safety device.",
+    "closingThought": "One carton of milk became a doorway into a much larger question about what households throw away.",
+    "newsDate": "August 29, 2026",
+    "id": "good-sep15-007",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A 16-Year-Old Built a Robot Turtle That Detects Microplastics",
+    "category": "Water Research",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Water Research",
+    "genre": "Innovation & Discovery",
+    "location": "Ontario, Canada",
+    "summary": "Evan Budz combined an autonomous turtle-inspired robot, underwater holographic imaging and trained AI models to distinguish microplastics from other particles in water. His project received a $50,000 award at Regeneron ISEF 2026.",
+    "why": "The work joined mechanical design, imaging and machine learning into one field-ready concept instead of treating microplastic detection as only a laboratory problem.",
+    "ripple": "If later validated outside competition settings, faster on-site screening could help researchers identify where more detailed laboratory sampling is needed.",
+    "source": "Business Insider",
+    "sourceUrl": "https://www.businessinsider.com/microplastics-innovation-ai-robot-turtle-evan-budz-2026-7",
+    "evidence": "Business Insider profiled Evan on July 22, 2026 and reported his ISEF award, development process and 94% project accuracy figure.",
+    "uncertainty": "The reported accuracy came from project testing; independent field validation across varied water conditions is still needed.",
+    "closingThought": "The early prototype sank like a brick. He kept rebuilding until it could help search the water.",
+    "newsDate": "July 22, 2026",
+    "id": "good-sep15-008",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A 17-Year-Old Used AI to Find Patterns in Mysterious Radio Bursts",
+    "category": "Space Science",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Space Science",
+    "genre": "Science & Discovery",
+    "location": "New Jersey, USA",
+    "summary": "Rohan Arni trained a machine-learning model on CHIME telescope data to classify repeating and apparently non-repeating fast radio bursts. The project reported 98% classification accuracy and identified four possible repeaters for future investigation.",
+    "why": "Rohan used open scientific data to work on a genuine unanswered astronomy problem, demonstrating how young researchers can contribute without owning a telescope.",
+    "ripple": "Candidate repeaters and classification tools can help astronomers prioritize follow-up observations as radio telescopes collect larger datasets.",
+    "source": "The Times of India",
+    "sourceUrl": "https://timesofindia.indiatimes.com/science/space/rohan-arni-17-used-ai-to-analyse-mysterious-radio-flashes-from-space-his-model-classified-repeating-and-non-repeating-bursts-with-98-accuracy/articleshow/133922309.cms",
+    "evidence": "The Times of India detailed the model, CHIME data and reported results on September 11, 2026, citing Society for Science project information.",
+    "uncertainty": "The four signals are candidates, not confirmed repeating sources, and the model’s performance requires scientific follow-up.",
+    "closingThought": "A teenager found a way to listen more carefully to flashes that last less than a second.",
+    "newsDate": "September 11, 2026",
+    "id": "good-sep15-009",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A 13-Year-Old Designed an Affordable Spoon to Flag Food Allergens",
+    "category": "Accessibility & Health",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Accessibility & Health",
+    "genre": "Innovation & Discovery",
+    "location": "Nashville, Tennessee, USA",
+    "summary": "After seeing friends worry about hidden ingredients at lunch, Abigail Stein designed an “Allergy Spoon” concept intended to change colour when it detects an allergen. She was named among the 2026 3M Young Scientist Challenge finalists.",
+    "why": "The idea begins with empathy: Abigail noticed that existing testing tools were not designed for a student sitting in a cafeteria.",
+    "ripple": "Even before commercialization, the prototype can encourage research into affordable, portable screening tools shaped around the people who would actually use them.",
+    "source": "The Times of India",
+    "sourceUrl": "https://timesofindia.indiatimes.com/world/us/meet-abigail-stein-the-13-year-old-nashville-student-who-designed-affordable-allergy-spoons-you-dont-need-a-200-machine-to-change-the-world/articleshow/132713730.cms",
+    "evidence": "The Times of India profiled Abigail’s finalist project on July 29, 2026.",
+    "uncertainty": "The spoon is a competition-stage concept and cannot replace certified allergy testing, ingredient controls or emergency medical plans.",
+    "closingThought": "She looked at a frightening problem and asked whether the tool could be as ordinary as a spoon.",
+    "newsDate": "July 29, 2026",
+    "id": "good-sep15-010",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A Teen Designed a Sponge to Remove Salmon-Harming Chemicals From Water",
+    "category": "Water Protection",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Water Protection",
+    "genre": "Science & Discovery",
+    "location": "Bellevue, Washington, USA",
+    "summary": "Eighteen-year-old Lakshmi Agrawal received a top Regeneron ISEF 2026 award for developing a reusable sponge intended to remove 6PPD-quinone, a tire-related pollutant associated with salmon deaths, from water.",
+    "why": "The project targets a specific pollutant with a material designed for recovery and reuse, connecting chemistry directly to ecosystem protection.",
+    "ripple": "Continued testing could inform practical treatment approaches for polluted runoff before it reaches streams used by vulnerable fish populations.",
+    "source": "Society for Science",
+    "sourceUrl": "https://www.societyforscience.org/regeneron-isef-2026-media-kit/",
+    "evidence": "Society for Science identified Lakshmi, her project and her $75,000 Regeneron Young Scientist Award in its 2026 ISEF media materials.",
+    "uncertainty": "Competition results establish the project’s promise, not large-scale treatment performance or deployment readiness.",
+    "closingThought": "A material small enough to hold in a hand was designed with an entire river ecosystem in mind.",
+    "newsDate": "May 15, 2026",
+    "id": "good-sep15-011",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "A 17-Year-Old Built a Carbon-Dioxide System to Fight Honey-Bee Pests",
+    "category": "Pollinator Protection",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Pollinator Protection",
+    "genre": "Science & Discovery",
+    "location": "Orlando, Florida, USA",
+    "summary": "Aakash Manaswi developed a carbon-dioxide-based system aimed at killing Varroa mites, destructive parasites of honey bees, while studying a problem central to colony health. He received the 2026 ISEF science-communication award.",
+    "why": "The project works on a practical agricultural problem and pairs experimentation with the ability to explain the science clearly to others.",
+    "ripple": "Better mite-control approaches could add options for beekeepers, but safety, colony effects and field performance would need careful evaluation.",
+    "source": "Society for Science",
+    "sourceUrl": "https://www.societyforscience.org/regeneron-isef-2026-media-kit/",
+    "evidence": "Society for Science’s 2026 ISEF media kit identifies Aakash, his bee-pest project and the $10,000 Peggy Scripps Award for Science Communication.",
+    "uncertainty": "The project is student research and does not establish a commercially approved treatment.",
+    "closingThought": "Protecting pollinators sometimes starts by understanding an enemy almost too small to see.",
+    "newsDate": "May 15, 2026",
+    "id": "good-sep15-012",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "More Than 370 Students Sent Their Experiments Toward the Edge of Space",
+    "category": "Hands-On Space Learning",
+    "mainCategory": "Education",
+    "originalCategory": "Hands-On Space Learning",
+    "genre": "Education",
+    "location": "United States and Territories",
+    "summary": "NASA’s TechRise Student Challenge brought together more than 370 students from 52 states and territories to design, build and test payloads for high-altitude balloon and suborbital flight opportunities.",
+    "why": "Students followed the same cycle professionals use—proposal, design, construction, testing and integration—while working with hardware expected to leave the classroom.",
+    "ripple": "Authentic flight projects can turn abstract STEM lessons into experience with teamwork, deadlines, failure analysis and engineering communication.",
+    "source": "NASA",
+    "sourceUrl": "https://www.nasa.gov/stmd-flight-opportunities/access-flight-tests/techrise/projects-from-the-next-generation-take-flight/",
+    "evidence": "NASA reported the participation figures and described student payload integration and flight preparation in 2026.",
+    "uncertainty": "Participation demonstrates access and learning; individual experiment outcomes vary and are not all described on the overview page.",
+    "closingThought": "For hundreds of students, the science project was not designed to sit on a desk—it was designed to fly.",
+    "newsDate": "July 1, 2026",
+    "id": "good-sep15-013",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "University Students Designed a New Integrated Power Concept for Lunar Exploration",
+    "category": "Student Aerospace Design",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Student Aerospace Design",
+    "genre": "Innovation & Discovery",
+    "location": "Cambridge, Massachusetts, USA",
+    "summary": "An MIT student team won NASA’s 2026 RASC-AL university competition with an Exploration-Class Lunar Integrated Power System concept developed through mission architecture, systems engineering and technical communication.",
+    "why": "The students were asked to connect many constraints into one viable exploration concept rather than solve a single isolated classroom problem.",
+    "ripple": "Design competitions give future engineers practice making tradeoffs that could inform later research and strengthen the workforce behind complex space missions.",
+    "source": "NASA",
+    "sourceUrl": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/nasa-announces-winners-of-2026-university-innovation-competition/",
+    "evidence": "NASA announced the MIT team as the 2026 RASC-AL first-place winner and described the competition’s workforce-development purpose.",
+    "uncertainty": "Winning design work is conceptual and does not mean the system has been selected for an operational lunar mission.",
+    "closingThought": "Before a power system reaches the Moon, somebody has to learn how every part of the mission fits together.",
+    "newsDate": "June 12, 2026",
+    "id": "good-sep15-014",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
+    "title": "Student Teams Proposed Life-Support Solutions for Future Lunar Landers",
+    "category": "Student Space Engineering",
+    "mainCategory": "Young Achievers",
+    "originalCategory": "Student Space Engineering",
+    "genre": "Innovation & Discovery",
+    "location": "United States",
+    "summary": "NASA’s 2026 Human Lander Challenge recognized university teams that developed environmental-control and life-support concepts for future crewed lunar landers after months of research and design work.",
+    "why": "Life-support engineering makes the stakes unmistakable: student ideas must account for reliability, limited resources and the safety of people living far from Earth.",
+    "ripple": "Promising concepts may inform further research while students gain the systems-level experience needed for the next generation of exploration programs.",
+    "source": "NASA",
+    "sourceUrl": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-announces-winners-for-2026-human-lander-challenge/",
+    "evidence": "NASA announced the 2026 winners and said student solutions could contribute to current next-generation Artemis lander work.",
+    "uncertainty": "The concepts remain competition work; any use in flight systems would require extensive engineering review, testing and program decisions.",
+    "closingThought": "Students were not only imagining a return to the Moon—they were working on how people could safely live through it.",
+    "newsDate": "July 8, 2026",
+    "id": "good-sep15-015",
+    "edition": "September 15, 2026 — Young People Creating, Helping & Leading",
+    "editionDate": "September 15, 2026",
+    "file": "index.html",
+    "isCurrent": true
+  },
+  {
     "title": "Ontario Is Honouring 20 Young Volunteers for Exceptional Community Service",
     "category": "Youth Service",
     "mainCategory": "Young Achievers",
@@ -19,7 +349,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-001",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A High-School Intern Won International Awards for a NASA-Linked Far-UVC Project",
@@ -41,7 +371,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-002",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A Sixth Grader Is Building a Self-Charging System From Everyday Motion",
@@ -63,7 +393,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-003",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Teen Inventors Built Affordable AI Glasses That Read Text Aloud",
@@ -85,7 +415,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-004",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Newmarket Youth Completed a New Civic-Leadership Program",
@@ -107,7 +437,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-005",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A Summer Literacy Program Sent 23 Alberta Students Back to School With More Confidence",
@@ -129,7 +459,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-006",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Toronto Donors Filled Nearly 1,000 Backpacks for Children Heading Back to School",
@@ -151,7 +481,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-007",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Manitoba Is Putting $100,000 Into a New Playground at Lavallee School",
@@ -173,7 +503,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-008",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "An 8-Year-Old Asked for His Playground Back—and Helped Inspire a Faster Repair Program",
@@ -195,7 +525,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-009",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "New Research Finds Dolly Parton’s Free-Book Program Is Building Early Literacy",
@@ -217,7 +547,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-010",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Youth Smoking Has Fallen to a Historic Low in the United States",
@@ -239,7 +569,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-011",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A New Farm-to-School Push Will Help Cafeterias Buy Better Equipment and Local Food",
@@ -261,7 +591,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-012",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Toronto’s Summer Camps Expanded Free Nutritious Snacks to as Many as 115,000 Children",
@@ -283,7 +613,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-013",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A Free Summer Program Gave Children Camps—and High-School Students Leadership Jobs",
@@ -305,7 +635,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-014",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Nearly 40 Years of Cleanup Restored Nipigon Bay on Lake Superior",
@@ -327,7 +657,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-015",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A River Otter Returned to the Bronx River for the First Time in About a Century",
@@ -349,7 +679,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-016",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "More Than 630,000 Volunteers Removed Nearly 14 Million Pieces of Trash From Coasts and Waterways",
@@ -371,7 +701,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-017",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "The Bronx Zoo Has Helped Rescue More Than 800 Box Turtles From Wildlife Trafficking",
@@ -393,7 +723,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-018",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A Washington Wildlife Crossing Reached 10,000 Safe Animal Crossings With Zero Roadkill",
@@ -415,7 +745,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-019",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Conservationists Moved 1,000 Corals Away From Extreme Ocean Heat",
@@ -437,7 +767,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-020",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "More Than 270,000 Square Miles Around Easter Island Is Becoming an Indigenous-Managed Ocean Reserve",
@@ -459,7 +789,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-021",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Two Solar Projects Opened on a Former Illinois Coal Mine",
@@ -481,7 +811,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-022",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Scientists Created a Plastic That Can Vaporize and Reassemble for Reuse",
@@ -503,7 +833,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-023",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Researchers Are Growing Miniature Human Organs to Improve Drug Testing",
@@ -525,7 +855,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-024",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "Scientists Are Targeting an Inflammatory Enzyme to Try to Prevent Lung Cancer Before It Starts",
@@ -547,7 +877,7 @@
     "editionDate": "August 30, 2026",
     "file": "index.html",
     "id": "good-aug30-025",
-    "isCurrent": true
+    "isCurrent": false
   },
   {
     "title": "A 15-Year-Old Built an AI-Powered Robot Sea Turtle That Hunts Microplastics",

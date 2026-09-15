@@ -32,6 +32,10 @@ function renderReader(story){
       <h4>The story</h4>
       <div class="story-copy"><p>${esc(story.summary||'Story details are being prepared.')}</p></div>
     </div>
+    <div class="reader-section story-brief why-it-matters">
+      <h4>Why it matters</h4>
+      <div class="story-copy"><p>${esc(story.why||'This story shows how a practical act can create value beyond the moment itself.')}</p></div>
+    </div>
     <div class="reader-takeaways">
       <div class="reader-section takeaway-card">
         <h4>Ripple effect</h4>

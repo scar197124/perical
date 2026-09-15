@@ -10,7 +10,7 @@ Pericle is a responsive good-news website for readers who want evidence-based st
 
 - Read the current edition on the Home page.
 - Browse completed editions in the Archive.
-- Explore stories by category or location.
+- Explore stories by category, genre, or location.
 - Open the original reporting behind every summarized story.
 
 ## Quick start
@@ -22,8 +22,8 @@ No build tools or package installation are required.
 3. To publish on GitHub Pages, use the `main` branch and select `/(root)` as the Pages source.
 
 ```bash
-git clone https://github.com/scar197124/Pericle.git
-cd Pericle
+git clone https://github.com/scar197124/perical.git
+cd perical
 python3 -m http.server 8000
 ```
 
@@ -36,8 +36,8 @@ Story data lives in `stories.json` and `stories-data.js`. Current-edition storie
 Before deployment:
 
 - Confirm every story has a working original-source link.
-- Check the story title, summary, ripple effect, and closing thought.
-- Verify Home, Archive, Categories, and Location on desktop and mobile.
+- Check the story title, summary, Why It Matters, ripple effect, evidence note, uncertainty note, and closing thought.
+- Verify Home, Archive, Categories, Genre, and Location on desktop and mobile.
 - Update the version query on CSS and JavaScript files when cache refresh is needed.
 - Update `sitemap.xml` when public page URLs change.
 
@@ -60,6 +60,7 @@ Social preview image: `assets/pericle-social-preview-ultrasafe.png`
 index.html            Current edition
 archive.html          Completed editions
 categories.html       Category browsing
+genre.html            Genre browsing
 location.html         Location browsing
 about.html            Mission and editorial approach
 stories.json          Story data in JSON
@@ -73,33 +74,17 @@ assets/                Brand and sharing images
 
 Pericle summarizes independently and points readers back to original reporting. The goal is not to pretend difficult events do not exist; it is to make verified human progress easier to see.
 
-## Current release
+## Current edition
 
-**v14.2.5 — Ultra-Safe Social Preview**
+**September 15, 2026 — Young People Creating, Helping & Leading**
 
-- Strengthened the first-screen project pitch and live-demo presentation.
-- Added a no-build quick start and publishing checklist.
-- Added page-specific descriptions, canonical URLs, and social metadata.
-- Added structured website data and improved sitemap signals.
-- Preserved the July 31 twenty-story edition and enriched storytelling.
-
-## Suggested GitHub repository metadata
-
-**Description:** Verified, source-linked stories of kindness, discovery, science, innovation, and human progress.
-
-**Topics:** `good-news`, `positive-news`, `human-interest`, `science-news`, `innovation`, `kindness`, `static-site`, `github-pages`
+- 15 verified, source-linked stories appear on Home.
+- Earlier editions remain available through Archive, Categories, Genre, and Location.
+- Each story includes context, Why It Matters, evidence, uncertainty, and a direct source link.
 
 ## License
 
 No open-source license has been selected yet. All rights remain with the repository owner unless a license is added. Linked source reporting remains the property of its original publishers.
-
-## Suggested commit message
-
-`Replace social preview with centered Facebook-safe image`
-
-
-### v14.2.5 Ultra-safe preview fix
-The social preview now uses an even more conservative centered layout, with the Pericle wordmark and the supporting tagline pulled farther inward so Facebook and other preview crops are less likely to cut off the left or right edges of the text. The filename was changed again to encourage social platforms to refresh cached previews.
 
 ## Automatic lead-story social preview
 Before publishing a new edition, run `python3 update_social_preview.py`. The script reads the first current story in `stories.json`, creates a unique 1200×630 Facebook/X image in `assets/`, and updates the Open Graph and Twitter tags in `index.html`. If image generation fails, the standard Pericle preview remains available as the fallback.

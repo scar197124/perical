@@ -2,33 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scar197124.github.io/perical/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://scar197124.github.io/perical/archive.html</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://scar197124.github.io/perical/categories.html</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://scar197124.github.io/perical/location.html</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://scar197124.github.io/perical/about.html</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url><loc>https://scar197124.github.io/perical/genre.html</loc></url>
+  <url><loc>https://scar197124.github.io/perical/genre.html</loc><lastmod>2026-09-15</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
