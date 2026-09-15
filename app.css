@@ -743,6 +743,7 @@ body::before{
 
 /* v16.3.0 — Keep broad mobile browse results compact without clipping cards. */
 @media(max-width:560px){
+  body[data-page="archive"] .story-list.all-results,
   body[data-page="categories"] .story-list.all-results,
   body[data-page="genre"] .story-list.all-results,
   body[data-page="location"] .story-list.all-results{

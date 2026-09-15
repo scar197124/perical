@@ -54,7 +54,11 @@ function renderReader(story){
 function selectStory(index){selected=index;renderReader(filtered[index]);document.querySelectorAll('.story-btn').forEach((b,i)=>b.classList.toggle('active',i===index));}
 function renderList(){
   const list=$('#storyList');if(!list)return;
-  list.classList.toggle('all-results',activeFilter==='All'&&['categories','genre','location'].includes(PAGE));
+  const broadBrowse=activeFilter==='All'&&(
+    ['categories','genre','location'].includes(PAGE)||
+    (PAGE==='archive'&&Object.values(archiveFilters).every(value=>value==='All'))
+  );
+  list.classList.toggle('all-results',broadBrowse);
   if(!filtered.length){
     list.innerHTML=`<div class="empty-state"><strong>${PAGE==='home'?'The next Pericle edition is being prepared.':'No stories match these filters.'}</strong><span>${PAGE==='home'?'New stories added here will remain Home-only until the following edition.':'Try another category, location, or edition.'}</span></div>`;
     $('#count').textContent='0 stories';
