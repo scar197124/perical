@@ -39,6 +39,7 @@
     background-size:100% auto;
   }
 }
+
 @media(max-width:390px){
   .identity-hero{
     height:165px;
@@ -737,5 +738,18 @@ body::before{
     border-color:var(--gold-bright);
     transform:scale(.992);
     background:linear-gradient(90deg,rgba(198,132,19,.28),#120d05 58%,#0b0804);
+  }
+}
+
+/* v16.3.0 — Keep broad mobile browse results compact without clipping cards. */
+@media(max-width:560px){
+  body[data-page="categories"] .story-list.all-results,
+  body[data-page="genre"] .story-list.all-results,
+  body[data-page="location"] .story-list.all-results{
+    max-height:min(56vh,520px)!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-gutter:stable;
   }
 }
