@@ -1,0 +1,65 @@
+/* Perical mobile reading polish — compact cards, unchanged story text. */
+@media (max-width:640px){
+  .reader .story-brief{
+    min-height:0;
+    margin-top:7px;
+    padding:11px 12px;
+    border-radius:9px;
+  }
+  .reader .story-brief:first-of-type{
+    padding-top:12px;
+    padding-bottom:8px;
+  }
+  .reader .story-brief .story-copy{
+    max-height:none;
+    overflow:visible;
+    padding-right:0;
+  }
+  .reader .story-brief p{
+    font-size:.94rem;
+    line-height:1.48;
+  }
+  .reader .reader-takeaways{
+    grid-template-columns:1fr;
+    gap:6px;
+    margin-top:6px;
+  }
+  .reader .reader-takeaways .reader-section{
+    min-height:0;
+    margin-top:0;
+    padding:9px 11px;
+    border-radius:9px;
+  }
+  .reader .reader-section h4{
+    margin-bottom:4px;
+    font-size:.72rem;
+    letter-spacing:.045em;
+  }
+  .reader .reader-section p{
+    font-size:.9rem;
+    line-height:1.42;
+  }
+  .reader .source{
+    width:fit-content;
+    max-width:100%;
+    margin:8px auto 0;
+    padding:8px 14px;
+    border-radius:999px;
+    text-align:center;
+  }
+  .reader .source .story-kicker{
+    display:block;
+    font-size:.62rem;
+    letter-spacing:.055em;
+  }
+  .reader .source strong{
+    font-size:.82rem;
+    line-height:1.25;
+  }
+}
+
+@media (max-width:390px){
+  .reader .story-brief{padding:9px 10px}
+  .reader .reader-takeaways .reader-section{padding:8px 10px}
+  .reader .source{padding:7px 12px}
+}

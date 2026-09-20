@@ -59,7 +59,7 @@ function renderReader(story){
       </div>
     </div>
     <a class="source" style="display:block;color:inherit;text-decoration:none" href="${esc(story.sourceUrl||'#')}" target="_blank" rel="noopener noreferrer">
-      <span class="story-kicker">Read the original source</span>
+      <span class="story-kicker">Read the original story</span>
       <strong style="display:block;color:var(--text);margin-top:5px;word-break:break-word">${esc(story.source||'View original source')} ↗</strong>
     </a>`;
 }
