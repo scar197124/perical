@@ -125,7 +125,7 @@ def main() -> None:
         print(f"Preview generation failed; keeping fallback: {exc}")
         image_name = FALLBACK
 
-    title = shorten(str(story.get("title") or "Pericle | Today’s Good News"), 100)
+    title = shorten(str(story.get("title") or "Perical | Today’s Good News"), 100)
     description = shorten(str(story.get("summary") or "Verified good news from around the world."), 190)
     image_url = SITE_URL + "assets/" + image_name
 
@@ -134,11 +134,11 @@ def main() -> None:
     document = replace_meta(document, "og:description", description)
     document = replace_meta(document, "og:image", image_url)
     document = replace_meta(document, "og:image:secure_url", image_url)
-    document = replace_meta(document, "og:image:alt", f"Pericle lead story: {title}")
+    document = replace_meta(document, "og:image:alt", f"Perical lead story: {title}")
     document = replace_meta(document, "twitter:title", title, prop=False)
     document = replace_meta(document, "twitter:description", description, prop=False)
     document = replace_meta(document, "twitter:image", image_url, prop=False)
-    document = replace_meta(document, "twitter:image:alt", f"Pericle lead story: {title}", prop=False)
+    document = replace_meta(document, "twitter:image:alt", f"Perical lead story: {title}", prop=False)
     INDEX.write_text(document, encoding="utf-8")
 
     print(f"Lead story: {title}")

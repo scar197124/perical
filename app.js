@@ -20,6 +20,17 @@ function renderReader(story){
   }
   const category=story.mainCategory||story.category||'Good News';
   const date=editionLabel(story.edition||story.editionDate||'');
+  const evidenceBlock=(story.evidence||story.uncertainty)?`
+    <div class="reader-takeaways evidence-pair">
+      <div class="reader-section takeaway-card">
+        <h4>Evidence</h4>
+        <p>${esc(story.evidence||'The original source provides the basis for this summary.')}</p>
+      </div>
+      <div class="reader-section takeaway-card">
+        <h4>What remains uncertain</h4>
+        <p>${esc(story.uncertainty||'Longer-term effects may change as the story develops.')}</p>
+      </div>
+    </div>`:'';
   el.innerHTML=`
     <div class="reader-topline"><span class="story-kicker">${esc(category)}</span><span class="story-position">Story ${selected+1} of ${filtered.length}</span></div>
     <h2>${esc(story.title)}</h2>
@@ -36,6 +47,7 @@ function renderReader(story){
       <h4>Why it matters</h4>
       <div class="story-copy"><p>${esc(story.why||'This story shows how a practical act can create value beyond the moment itself.')}</p></div>
     </div>
+    ${evidenceBlock}
     <div class="reader-takeaways">
       <div class="reader-section takeaway-card">
         <h4>Ripple effect</h4>
@@ -46,10 +58,10 @@ function renderReader(story){
         <p>${esc(story.closingThought||story.why||'A meaningful moment can continue to matter long after the story ends.')}</p>
       </div>
     </div>
-    <div class="source">
-      <span class="story-kicker">Source link</span>
-      <a href="${esc(story.sourceUrl||'#')}" target="_blank" rel="noopener noreferrer">${esc(story.source||'View original source')} ↗</a>
-    </div>`;
+    <a class="source" style="display:block;color:inherit;text-decoration:none" href="${esc(story.sourceUrl||'#')}" target="_blank" rel="noopener noreferrer">
+      <span class="story-kicker">Read the original source</span>
+      <strong style="display:block;color:var(--text);margin-top:5px;word-break:break-word">${esc(story.source||'View original source')} ↗</strong>
+    </a>`;
 }
 function selectStory(index){selected=index;renderReader(filtered[index]);document.querySelectorAll('.story-btn').forEach((b,i)=>b.classList.toggle('active',i===index));}
 function renderList(){
@@ -60,12 +72,12 @@ function renderList(){
   );
   list.classList.toggle('all-results',broadBrowse);
   if(!filtered.length){
-    list.innerHTML=`<div class="empty-state"><strong>${PAGE==='home'?'The next Pericle edition is being prepared.':'No stories match these filters.'}</strong><span>${PAGE==='home'?'New stories added here will remain Home-only until the following edition.':'Try another category, location, or edition.'}</span></div>`;
+    list.innerHTML=`<div class="empty-state"><strong>${PAGE==='home'?'The next Perical edition is being prepared.':'No stories match these filters.'}</strong><span>${PAGE==='home'?'New stories added here will remain Home-only until the following edition.':'Try another category, location, or edition.'}</span></div>`;
     $('#count').textContent='0 stories';
     const wheelCount=$('#wheelResults');if(wheelCount)wheelCount.textContent='0 stories';
     renderReader(null);updateMobileDock();return;
   }
-  selected=Math.min(selected,Math.max(0,filtered.length-1));list.innerHTML=filtered.map((s,i)=>`<button class="story-btn ${i===selected?'active':''}" data-i="${i}"><strong>${esc(s.title)}</strong><span>${esc(s.mainCategory||s.category)} · ${esc(s.location)}</span><small>${esc(editionLabel(s.edition||s.editionDate||'Pericle archive'))}</small></button>`).join('');list.querySelectorAll('button').forEach(b=>b.onclick=()=>{selectStory(+b.dataset.i);if(matchMedia('(max-width:560px)').matches){showMobileDock();document.querySelector('.reader-panel')?.scrollIntoView({behavior:'smooth',block:'start'});}});$('#count').textContent=`${filtered.length} ${filtered.length===1?'story':'stories'}`;const wheelCount=$('#wheelResults');if(wheelCount)wheelCount.textContent=`${filtered.length} ${filtered.length===1?'story':'stories'}`;renderReader(filtered[selected]);updateMobileDock();}
+  selected=Math.min(selected,Math.max(0,filtered.length-1));list.innerHTML=filtered.map((s,i)=>`<button class="story-btn ${i===selected?'active':''}" data-i="${i}"><strong>${esc(s.title)}</strong><span>${esc(s.mainCategory||s.category)} · ${esc(s.location)}</span><small>${esc(editionLabel(s.edition||s.editionDate||'Perical archive'))}</small></button>`).join('');list.querySelectorAll('button').forEach(b=>b.onclick=()=>{selectStory(+b.dataset.i);if(matchMedia('(max-width:560px)').matches){showMobileDock();document.querySelector('.reader-panel')?.scrollIntoView({behavior:'smooth',block:'start'});}});$('#count').textContent=`${filtered.length} ${filtered.length===1?'story':'stories'}`;const wheelCount=$('#wheelResults');if(wheelCount)wheelCount.textContent=`${filtered.length} ${filtered.length===1?'story':'stories'}`;renderReader(filtered[selected]);updateMobileDock();}
 function applyArchiveFilters(){
   filtered=sortNewestFirst(scope.filter(s=>
     (archiveFilters.edition==='All'||archiveEdition(s)===archiveFilters.edition)&&
@@ -165,7 +177,7 @@ function updateStats(){
   if(title&&!title.querySelector('.edition-metrics')){
     const metrics=document.createElement('div');
     metrics.className='edition-metrics';
-    metrics.innerHTML=`<span><b>${PAGE==='home'?current:PAGE==='archive'?archived:STORIES.length}</b>${PAGE==='home'?'Current stories':PAGE==='archive'?'Archived stories':'Stories available'}</span><span><b>${categories}</b>Editorial categories</span><span><b>${locations}</b>Places represented</span><span class="editorial-note">Evidence-led stories of people, nature, science, and progress.</span>`;
+    metrics.innerHTML=`<span><b>${PAGE==='home'?current:PAGE==='archive'?archived:STORIES.length}</b>${PAGE==='home'?'Current stories':PAGE==='archive'?'Archived stories':'Stories available'}</span><span><b>${categories}</b>Categories across Perical</span><span><b>${locations}</b>Places in the archive</span><span class="editorial-note">Evidence-led stories of people, nature, science, and progress.</span>`;
     title.appendChild(metrics);
   }
 }
