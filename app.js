@@ -30,7 +30,7 @@ function renderReader(story){
         <h4>What remains uncertain</h4>
         <p>${esc(story.uncertainty||'Longer-term effects may change as the story develops.')}</p>
       </div>
-    </div>`:'';
+    </div>`:'';  
   el.innerHTML=`
     <div class="reader-topline"><span class="story-kicker">${esc(category)}</span><span class="story-position">Story ${selected+1} of ${filtered.length}</span></div>
     <h2>${esc(story.title)}</h2>
@@ -66,11 +66,6 @@ function renderReader(story){
 function selectStory(index){selected=index;renderReader(filtered[index]);document.querySelectorAll('.story-btn').forEach((b,i)=>b.classList.toggle('active',i===index));}
 function renderList(){
   const list=$('#storyList');if(!list)return;
-  const broadBrowse=activeFilter==='All'&&(
-    ['categories','genre','location'].includes(PAGE)||
-    (PAGE==='archive'&&Object.values(archiveFilters).every(value=>value==='All'))
-  );
-  list.classList.toggle('all-results',broadBrowse);
   if(!filtered.length){
     list.innerHTML=`<div class="empty-state"><strong>${PAGE==='home'?'The next Perical edition is being prepared.':'No stories match these filters.'}</strong><span>${PAGE==='home'?'New stories added here will remain Home-only until the following edition.':'Try another category, location, or edition.'}</span></div>`;
     $('#count').textContent='0 stories';
@@ -177,7 +172,7 @@ function updateStats(){
   if(title&&!title.querySelector('.edition-metrics')){
     const metrics=document.createElement('div');
     metrics.className='edition-metrics';
-    metrics.innerHTML=`<span><b>${PAGE==='home'?current:PAGE==='archive'?archived:STORIES.length}</b>${PAGE==='home'?'Current stories':PAGE==='archive'?'Archived stories':'Stories available'}</span><span><b>${categories}</b>Categories across Perical</span><span><b>${locations}</b>Places in the archive</span><span class="editorial-note">Evidence-led stories of people, nature, science, and progress.</span>`;
+    metrics.innerHTML=`<span><b>${PAGE==='home'?current:PAGE==='archive'?archived:STORIES.length}</b>${PAGE==='home'?'Current stories':PAGE==='archive'?'Archived stories':'Stories available'}</span><span><b>${categories}</b>Editorial categories</span><span><b>${locations}</b>Places represented</span><span class="editorial-note">Evidence-led stories of people, nature, science, and progress.</span>`;
     title.appendChild(metrics);
   }
 }

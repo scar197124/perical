@@ -39,7 +39,6 @@
     background-size:100% auto;
   }
 }
-
 @media(max-width:390px){
   .identity-hero{
     height:165px;
@@ -717,21 +716,12 @@ body::before{
   }
   .story-btn{
     min-height:90px;
-    height:auto;
     padding:15px 54px 14px 16px;
     touch-action:manipulation;
     -webkit-tap-highlight-color:rgba(240,189,69,.18);
     user-select:none;
     -webkit-user-select:none;
   }
-  .story-btn strong{
-    display:block;
-    overflow:visible;
-    -webkit-line-clamp:unset;
-    -webkit-box-orient:initial;
-    overflow-wrap:anywhere;
-  }
-  .story-btn.active::before{display:none}
   .story-btn strong,.story-btn span,.story-btn small{pointer-events:none}
   .story-btn::after{right:17px}
   .story-btn:active{
@@ -741,16 +731,44 @@ body::before{
   }
 }
 
-/* v16.3.0 — Keep broad mobile browse results compact without clipping cards. */
-@media(max-width:560px){
-  body[data-page="archive"] .story-list.all-results,
-  body[data-page="categories"] .story-list.all-results,
-  body[data-page="genre"] .story-list.all-results,
-  body[data-page="location"] .story-list.all-results{
-    max-height:min(56vh,520px)!important;
-    overflow-y:auto!important;
-    overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-gutter:stable;
+/* v16.3 — portrait phones: three-story viewport with its own touch scroller. */
+@media (max-width:700px) and (orientation:portrait){
+  body[data-page="home"] .story-list{
+    display:grid!important;
+    height:310px!important;
+    max-height:310px!important;
+    min-height:310px!important;
+    flex:0 0 310px!important;
+    overflow-y:scroll!important;
+    overflow-x:hidden!important;
+    overscroll-behavior-y:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-y!important;
+    scrollbar-width:auto;
+    contain:layout paint;
+    scroll-snap-type:y proximity;
   }
+  body[data-page="home"] .story-btn{
+    min-height:90px;
+    scroll-snap-align:start;
+  }
+}
+
+/* v16.6 — content-sized story cards and centered source action. */
+.reader .story-brief{
+  min-height:0;
+  padding:14px 16px;
+}
+.reader .story-brief .story-copy{
+  max-height:none;
+  overflow:visible;
+  padding-right:0;
+}
+.reader .source{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin:12px auto 0;
+  padding:10px 18px;
+  text-align:center;
 }

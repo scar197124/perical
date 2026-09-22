@@ -1,10 +1,10 @@
-# Perical — Verified Good News, Clearly Sourced
+# Pericle — Verified Good News, Clearly Sourced
 
-Perical is a responsive good-news website for readers who want evidence-based stories of kindness, discovery, science, community progress, and practical innovation—without losing the link to the original source.
+Pericle is a responsive good-news website for readers who want evidence-based stories of kindness, discovery, science, community progress, and practical innovation—without losing the link to the original source.
 
 **Live site:** https://scar197124.github.io/perical/
 
-![Perical social preview](assets/pericle-social-preview-ultrasafe.png)
+![Pericle social preview](assets/pericle-social-preview-ultrasafe.png)
 
 ## What visitors can do
 
@@ -22,8 +22,8 @@ No build tools or package installation are required.
 3. To publish on GitHub Pages, use the `main` branch and select `/(root)` as the Pages source.
 
 ```bash
-git clone https://github.com/scar197124/perical.git
-cd perical
+git clone https://github.com/scar197124/Pericle.git
+cd Pericle
 python3 -m http.server 8000
 ```
 
@@ -71,7 +71,7 @@ assets/                Brand and sharing images
 
 ## Editorial principle
 
-Perical summarizes independently and points readers back to original reporting. The goal is not to pretend difficult events do not exist; it is to make verified human progress easier to see.
+Pericle summarizes independently and points readers back to original reporting. The goal is not to pretend difficult events do not exist; it is to make verified human progress easier to see.
 
 ## Current release
 
@@ -99,7 +99,7 @@ No open-source license has been selected yet. All rights remain with the reposit
 
 
 ### v14.2.5 Ultra-safe preview fix
-The social preview now uses an even more conservative centered layout, with the Perical wordmark and the supporting tagline pulled farther inward so Facebook and other preview crops are less likely to cut off the left or right edges of the text. The filename was changed again to encourage social platforms to refresh cached previews.
+The social preview now uses an even more conservative centered layout, with the Pericle wordmark and the supporting tagline pulled farther inward so Facebook and other preview crops are less likely to cut off the left or right edges of the text. The filename was changed again to encourage social platforms to refresh cached previews.
 
 ## Automatic lead-story social preview
-Before publishing a new edition, run `python3 update_social_preview.py`. The script reads the first current story in `stories.json`, creates a unique 1200×630 Facebook/X image in `assets/`, and updates the Open Graph and Twitter tags in `index.html`. If image generation fails, the standard Perical preview remains available as the fallback.
+Before publishing a new edition, run `python3 update_social_preview.py`. The script reads the first current story in `stories.json`, creates a unique 1200×630 Facebook/X image in `assets/`, and updates the Open Graph and Twitter tags in `index.html`. If image generation fails, the standard Pericle preview remains available as the fallback.
