@@ -828,3 +828,14 @@ body::before{
 @media(max-width:640px){
   .reader .story-brief:first-of-type,.reader .reader-section:first-of-type{padding:11px 12px}
 }
+
+/* v16.7.1 — keep unselected cards visibly lit beside the active story. */
+.story-btn,.category-choice{
+  background:linear-gradient(105deg,#3a2915 0%,#2b2012 62%,#35250f 100%);
+  border-color:rgba(240,189,69,.52);
+}
+.story-btn:hover,.category-choice:hover{background:linear-gradient(105deg,#4b3518,#302313 64%,#3d2b12)}
+.story-btn.active,.category-choice.active{background:linear-gradient(105deg,#654318,#382711 62%,#30200e)}
+.reader .story-brief,.reader .reader-section,.reader .story-brief:first-of-type,.reader .reader-section:first-of-type{
+  background:linear-gradient(120deg,rgba(78,53,21,.91),rgba(49,35,17,.94) 58%,rgba(64,43,17,.9));
+}
