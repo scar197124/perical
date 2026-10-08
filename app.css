@@ -850,3 +850,10 @@ body::before{
 .listen-controls label{display:flex;align-items:center;gap:8px;color:var(--text,#fff)}
 .story-listen p{margin:12px 0 6px}.story-listen small{display:block;line-height:1.5;color:var(--muted,#b1c4bc)}
 @media(max-width:560px){.story-listen{padding:12px}.listen-controls{gap:8px}.listen-controls button{flex:1}.listen-controls label{width:100%}}
+
+.voice-settings{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}
+.voice-settings label{display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-width:0;color:var(--text,#fff)}
+.voice-settings .voice-choice{width:100%}.voice-choice select{flex:1;min-width:0;max-width:100%;min-height:44px;padding:8px;border-radius:8px;background:var(--bg,#08120f);color:var(--text,#fff);font:inherit;border:1px solid var(--line,#39504a)}
+.voice-settings input{max-width:140px;accent-color:#a3f4cc}.voice-settings output{min-width:48px;font-variant-numeric:tabular-nums}
+.voice-settings select:focus-visible,.voice-settings input:focus-visible{outline:3px solid #a3f4cc;outline-offset:3px}
+@media(max-width:560px){.voice-settings label{width:100%}.voice-settings input{flex:1;max-width:none}}

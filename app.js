@@ -14,14 +14,36 @@ const storyEditionIndex=s=>editionRankMap.get(archiveEdition(s))??9999;
 const sortNewestFirst=arr=>arr.map((story,index)=>({story,index})).sort((a,b)=>storyEditionIndex(a.story)-storyEditionIndex(b.story)||a.index-b.index).map(x=>x.story);
 // Narration begins only after a reader chooses Listen.
 const speechAvailable=()=>('speechSynthesis' in window)&&('SpeechSynthesisUtterance' in window);
-let narration={generation:0,state:'idle',chunks:[],index:0,utterance:null,rate:1};
+const voicePreferenceKey='perical-narration-settings';
+let voicePreferences={voice:'',rate:0.9,pitch:1};
+try{const saved=JSON.parse(localStorage.getItem(voicePreferenceKey)||'null');if(saved){voicePreferences.voice=typeof saved.voice==='string'?saved.voice:'';voicePreferences.rate=Math.min(1.3,Math.max(0.6,Number(saved.rate)||0.9));voicePreferences.pitch=Math.min(1.3,Math.max(0.7,Number(saved.pitch)||1));}}catch(error){}
+let narration={generation:0,state:'idle',chunks:[],index:0,utterance:null,rate:0.9,pitch:1,voice:''};
+function saveVoicePreferences(){try{localStorage.setItem(voicePreferenceKey,JSON.stringify(voicePreferences));}catch(error){}}
+const voiceKey=voice=>voice.voiceURI||`${voice.name}|${voice.lang}`;
+function populateNarrationVoices(){
+  const select=$('#listenVoice');if(!select||!speechAvailable())return;
+  const voices=window.speechSynthesis.getVoices().slice().sort((a,b)=>Number(/^en[-_]/i.test(b.lang))-Number(/^en[-_]/i.test(a.lang))||a.name.localeCompare(b.name));
+  select.innerHTML='<option value="">Device default</option>'+voices.map(v=>`<option value="${esc(voiceKey(v))}">${esc(v.name)} (${esc(v.lang)})</option>`).join('');
+  select.value=voices.some(v=>voiceKey(v)===voicePreferences.voice)?voicePreferences.voice:'';
+}
+if(speechAvailable())window.speechSynthesis.addEventListener('voiceschanged',populateNarrationVoices);
+function narrationSettingsChanged(){
+  voicePreferences={voice:$('#listenVoice').value,rate:Number($('#listenRate').value),pitch:Number($('#listenPitch').value)};
+  $('#listenRateValue').textContent=`${voicePreferences.rate.toFixed(2)}×`;
+  $('#listenPitchValue').textContent=voicePreferences.pitch.toFixed(2);
+  saveVoicePreferences();
+  stopNarration('Settings saved on this device. Try the voice or listen again.');
+}
+
 function narrationText(story){
   const sections=[story.title,story.location,story.summary,`Why it matters. ${story.why||''}`,story.evidence?`Evidence. ${story.evidence}`:'',story.uncertainty?`What remains uncertain. ${story.uncertainty}`:'',story.ripple?`Ripple effect. ${story.ripple}`:'',story.closingThought?`Closing thought. ${story.closingThought}`:'',`Source: ${story.source||'See original source'}.${story.newsDate?` Reported ${story.newsDate}.`:''}`];
   // Short utterances avoid handing an entire long article to a speech engine.
   return sections.filter(Boolean).flatMap(section=>{
-    const words=String(section).split(/\s+/);const chunks=[];
-    while(words.length)chunks.push(words.splice(0,35).join(' '));
-    return chunks;
+    return (String(section).match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[String(section)]).flatMap(sentence=>{
+      const words=sentence.trim().split(/\s+/),chunks=[];
+      while(words.length)chunks.push(words.splice(0,55).join(' '));
+      return chunks;
+    });
   });
 }
 function updateNarration(message){
@@ -29,7 +51,7 @@ function updateNarration(message){
   if(!play)return;
   const active=['speaking','paused'].includes(narration.state);
   play.textContent=narration.state==='speaking'?'Pause':narration.state==='paused'?'Resume':'Listen to this story';
-  stop.disabled=!active;if(rate)rate.disabled=active;
+  stop.disabled=!active;
   status.textContent=message||(narration.state==='speaking'?'Reading aloud…':narration.state==='paused'?'Paused.':'Ready when you are.');
 }
 function stopNarration(message){
@@ -41,10 +63,10 @@ function speakNarrationChunk(generation){
   if(generation!==narration.generation||narration.state!=='speaking')return;
   if(narration.index>=narration.chunks.length){narration.state='idle';narration.utterance=null;updateNarration('Story complete. Listen again whenever you like.');return;}
   const utterance=new window.SpeechSynthesisUtterance(narration.chunks[narration.index]);
-  utterance.lang='en-CA';utterance.rate=narration.rate;
+  utterance.lang='en-CA';utterance.rate=narration.rate;utterance.pitch=narration.pitch;
   const voices=window.speechSynthesis.getVoices();
-  const voice=voices.find(v=>v.localService&&/^en[-_]/i.test(v.lang))||voices.find(v=>/^en[-_]/i.test(v.lang));
-  if(voice)utterance.voice=voice;
+  const voice=voices.find(v=>voiceKey(v)===narration.voice)||voices.find(v=>v.default&&/^en[-_]/i.test(v.lang))||voices.find(v=>v.localService&&/^en[-_]/i.test(v.lang))||voices.find(v=>/^en[-_]/i.test(v.lang));
+  if(voice){utterance.voice=voice;utterance.lang=voice.lang;}
   narration.utterance=utterance;
   utterance.onend=()=>{if(generation!==narration.generation)return;narration.utterance=null;narration.index++;speakNarrationChunk(generation);};
   utterance.onerror=event=>{if(generation!==narration.generation)return;stopNarration(event.error==='not-allowed'?'Your browser blocked audio. Choose Listen again.':'Audio is unavailable. Try Listen again or another browser voice.');};
@@ -52,11 +74,16 @@ function speakNarrationChunk(generation){
 }
 function setupNarration(story){
   const play=$('#listenStory');if(!play)return;
-  if(!speechAvailable()){play.disabled=true;$('#listenRate').disabled=true;$('#listenStatus').textContent='Read-aloud is unavailable in this browser.';return;}
+  if(!speechAvailable()){play.disabled=true;['listenVoice','listenRate','listenPitch','previewVoice'].forEach(id=>$('#'+id).disabled=true);$('#listenStatus').textContent='Read-aloud is unavailable in this browser.';return;}
+  $('#listenRate').value=voicePreferences.rate;$('#listenPitch').value=voicePreferences.pitch;
+  $('#listenRateValue').textContent=`${voicePreferences.rate.toFixed(2)}×`;$('#listenPitchValue').textContent=voicePreferences.pitch.toFixed(2);
+  populateNarrationVoices();
+  ['listenVoice','listenRate','listenPitch'].forEach(id=>$('#'+id).onchange=narrationSettingsChanged);
+  $('#previewVoice').onclick=()=>{stopNarration();Object.assign(narration,voicePreferences);narration.chunks=['Welcome to Perical. Take your time, and enjoy a story worth hearing.'];narration.state='speaking';window.speechSynthesis.resume();updateNarration('Trying your voice settings…');speakNarrationChunk(narration.generation);};
   play.onclick=()=>{
     if(narration.state==='speaking'){narration.state='paused';window.speechSynthesis.pause();updateNarration();return;}
     if(narration.state==='paused'){narration.state='speaking';window.speechSynthesis.resume();if(!narration.utterance)speakNarrationChunk(narration.generation);updateNarration();return;}
-    stopNarration();narration.chunks=narrationText(story);narration.rate=Number($('#listenRate').value);narration.state='speaking';window.speechSynthesis.resume();updateNarration();speakNarrationChunk(narration.generation);
+    stopNarration();narration.chunks=narrationText(story);Object.assign(narration,voicePreferences);narration.state='speaking';window.speechSynthesis.resume();updateNarration();speakNarrationChunk(narration.generation);
   };
   $('#stopStory').onclick=()=>stopNarration('Stopped. Listen starts from the beginning.');
 }
@@ -89,10 +116,15 @@ function renderReader(story){
       <div class="listen-controls">
         <button type="button" id="listenStory">Listen to this story</button>
         <button type="button" id="stopStory" disabled>Stop</button>
-        <label for="listenRate">Speed <select id="listenRate"><option value="0.8">Slower</option><option value="1" selected>Normal</option><option value="1.2">Faster</option></select></label>
+        <button type="button" id="previewVoice">Try voice</button>
+      </div>
+      <div class="voice-settings">
+        <label class="voice-choice" for="listenVoice">Voice <select id="listenVoice"><option value="">Device default</option></select></label>
+        <label for="listenRate">Speed <input id="listenRate" type="range" min="0.6" max="1.3" step="0.05" value="0.9"><output id="listenRateValue" for="listenRate">0.90×</output></label>
+        <label for="listenPitch">Pitch <input id="listenPitch" type="range" min="0.7" max="1.3" step="0.05" value="1"><output id="listenPitchValue" for="listenPitch">1.00</output></label>
       </div>
       <p id="listenStatus" role="status" aria-live="polite">Ready when you are.</p>
-      <small>Tap Listen to hear the full story, evidence and source. Voice availability depends on your browser and device.</small>
+      <small>Tap Listen to hear the full story, evidence and source. Choose a voice and use Try voice to hear it. Your choices are saved on this device. Available voices and their quality depend on your browser and device.</small>
     </div>
     <div class="meta">
       <span class="chip">${esc(story.location||'Global')}</span>
