@@ -14,6 +14,7 @@ const storyEditionIndex=s=>editionRankMap.get(archiveEdition(s))??9999;
 const sortNewestFirst=arr=>arr.map((story,index)=>({story,index})).sort((a,b)=>storyEditionIndex(a.story)-storyEditionIndex(b.story)||a.index-b.index).map(x=>x.story);
 function renderReader(story){
   const el=$('#reader');
+  el.querySelector('audio')?.pause();
   if(!story){
     el.innerHTML='<p class="empty">Select a story from the display panel.</p>';
     return;
@@ -34,6 +35,7 @@ function renderReader(story){
   el.innerHTML=`
     <div class="reader-topline"><span class="story-kicker">${esc(category)}</span><span class="story-position">Story ${selected+1} of ${filtered.length}</span></div>
     <h2>${esc(story.title)}</h2>
+    ${story.id==='good-oct20-001'?`<section class="narration-preview" aria-label="Hunter voice preview"><div><strong>Try Hunter’s voice</strong><span>45-second preview · shortened story</span></div><audio controls preload="none" aria-label="Listen to the shortened Texas barber story in Hunter’s voice"><source src="assets/audio/hunter-barber-preview.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></section>`:''}
     <div class="meta">
       <span class="chip">${esc(story.location||'Global')}</span>
       <span class="chip">${esc(category)}</span>

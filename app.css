@@ -894,3 +894,10 @@ body{
 @media(max-width:640px){
   .reader .reader-section p{line-height:1.6}
 }
+
+/* Hunter trial: saved recording, never browser-generated speech. */
+.narration-preview{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(110deg,#3a2a12,#251c0f)}
+.narration-preview strong,.narration-preview span{display:block}
+.narration-preview strong{color:var(--gold-pale);font-size:.93rem}
+.narration-preview span{color:var(--muted);font-size:.78rem;margin-top:3px}
+.narration-preview audio{display:block;width:100%;max-width:100%;margin-top:10px;height:44px;color-scheme:dark}
