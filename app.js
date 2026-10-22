@@ -197,3 +197,9 @@ bootStories();
 
 // v11.2 unified active navigation
 document.querySelectorAll('.nav a[data-nav]').forEach(a=>{if(a.dataset.nav===PAGE)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+
+// Keep edition and individual story recordings from speaking over each other.
+document.addEventListener("play", event => {
+  if (!(event.target instanceof HTMLAudioElement)) return;
+  document.querySelectorAll("audio").forEach(audio => { if (audio !== event.target) audio.pause(); });
+}, true);

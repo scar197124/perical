@@ -901,3 +901,5 @@ body{
 .narration-preview strong{color:var(--gold-pale);font-size:.93rem}
 .narration-preview span{color:var(--muted);font-size:.78rem;margin-top:3px}
 .narration-preview audio{display:block;width:100%;max-width:100%;margin-top:10px;height:44px;color-scheme:dark}
+
+.edition-narration{margin:0 0 16px}.edition-narration audio{height:44px}
