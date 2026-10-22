@@ -35,7 +35,7 @@ function renderReader(story){
   el.innerHTML=`
     <div class="reader-topline"><span class="story-kicker">${esc(category)}</span><span class="story-position">Story ${selected+1} of ${filtered.length}</span></div>
     <h2>${esc(story.title)}</h2>
-    ${story.id==='good-oct20-001'?`<section class="narration-preview" aria-label="Hunter voice preview"><div><strong>Try Hunter’s voice</strong><span>45-second preview · shortened story</span></div><audio controls preload="none" aria-label="Listen to the shortened Texas barber story in Hunter’s voice"><source src="assets/audio/hunter-barber-preview.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></section>`:''}
+    ${story.id==='good-oct20-007'?`<section class="narration-preview" aria-label="Story narration"><div><strong>Listen to this story</strong><span>Narrated by Jenny · 1 min 44 sec</span></div><audio controls preload="none" aria-label="Listen to Mozambique Gives Mount Mabu a Community Conservation Future"><source src="assets/audio/jenny-mount-mabu.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></section>`:''}
     <div class="meta">
       <span class="chip">${esc(story.location||'Global')}</span>
       <span class="chip">${esc(category)}</span>
