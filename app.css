@@ -903,3 +903,8 @@ body{
 .narration-preview audio{display:block;width:100%;max-width:100%;margin-top:10px;height:44px;color-scheme:dark}
 
 .edition-narration{margin:0 0 16px}.edition-narration audio{height:44px}
+
+.listening-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:.85rem;color:var(--muted)}
+.listening-controls select,.listening-controls button{font:inherit;color:var(--text);background:#251c0f;border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:40px}
+.listening-controls select:focus-visible,.listening-controls button:focus-visible{outline:2px solid var(--gold-pale);outline-offset:3px}
+@media(max-width:600px){#narration-progress{flex-basis:100%}}

@@ -203,3 +203,41 @@ document.addEventListener("play", event => {
   if (!(event.target instanceof HTMLAudioElement)) return;
   document.querySelectorAll("audio").forEach(audio => { if (audio !== event.target) audio.pause(); });
 }, true);
+
+// Saved playback preferences stay local to the listener's device.
+(function setupEditionListening(){
+  const audio=document.querySelector('.edition-narration audio');
+  if(!audio)return;
+  const speed=document.querySelector('#narration-speed');
+  const status=document.querySelector('#narration-progress');
+  const positionKey='perical:edition:2026-10-20:position';
+  const speedKey='perical:narration:speed';
+  const read=key=>{try{return localStorage.getItem(key);}catch{return null;}};
+  const write=(key,value)=>{try{localStorage.setItem(key,String(value));}catch{}};
+  const format=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+  const allowed=[.75,.85,1,1.15];
+  let rate=Number(read(speedKey));
+  if(!allowed.includes(rate))rate=.85;
+  speed.value=String(rate);
+  const applyRate=target=>{target.preservesPitch=true;target.playbackRate=rate;};
+  applyRate(audio);
+  document.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement)applyRate(event.target);},true);
+  speed.addEventListener('change',()=>{rate=Number(speed.value);write(speedKey,rate);document.querySelectorAll('audio').forEach(applyRate);});
+  let saved=Number(read(positionKey))||0;
+  let restored=false;
+  if(saved>0)status.textContent=`Your next listen resumes at ${format(saved)}.`;
+  const restore=()=>{
+    if(restored||!Number.isFinite(audio.duration))return;
+    restored=true;
+    if(saved>0&&saved<audio.duration-2)audio.currentTime=saved;
+  };
+  audio.addEventListener('loadedmetadata',restore);
+  audio.addEventListener('canplay',restore);
+  let lastSave=0;
+  const save=()=>{if(!restored&&saved>0)return;write(positionKey,audio.currentTime);};
+  audio.addEventListener('timeupdate',()=>{if(Date.now()-lastSave>2000){save();lastSave=Date.now();}});
+  audio.addEventListener('pause',()=>{save();status.textContent=`Saved at ${format(audio.currentTime)} on this device.`;});
+  audio.addEventListener('ended',()=>{saved=0;write(positionKey,0);status.textContent='Edition complete. Your next listen starts at the beginning.';});
+  window.addEventListener('pagehide',save);
+  document.querySelector('#narration-restart').addEventListener('click',()=>{saved=0;restored=true;audio.currentTime=0;write(positionKey,0);status.textContent='Back at the beginning.';});
+})();
