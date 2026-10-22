@@ -205,6 +205,7 @@ document.addEventListener("play", event => {
 }, true);
 
 // Saved playback preferences stay local to the listener's device.
+const EDITION_CHAPTERS=[{"id": "good-oct20-001", "title": "A Texas Barber Returned Every Dollar of $128,514 Found at an ATM", "start": 5.99}, {"id": "good-oct20-002", "title": "After a Lightning Emergency, a Couple Celebrates a Future Together", "start": 111.53}, {"id": "good-oct20-003", "title": "A Retired Oregon Couple Receives a New Heating and Cooling System", "start": 219.49}, {"id": "good-oct20-004", "title": "A Teen’s Cycling Project Connects Families With Bikes and Lessons", "start": 324.21}, {"id": "good-oct20-005", "title": "Moviegoers Raise $146,000 for a Longtime Theater Worker", "start": 431.49}, {"id": "good-oct20-006", "title": "Jersey Expands Protection for Its Underwater Habitats", "start": 535.81}, {"id": "good-oct20-007", "title": "Mozambique Gives Mount Mabu a Community Conservation Future", "start": 637.99}, {"id": "good-oct20-008", "title": "American Prairie’s Free-Roaming Bison Herd Passes 1,000", "start": 745.87}, {"id": "good-oct20-009", "title": "Aldabra’s Giant Tortoise Survey Establishes an Encouraging Baseline", "start": 855.95}, {"id": "good-oct20-010", "title": "Three New National Parks Protect Victoria’s Central-West Forests", "start": 967.41}, {"id": "good-oct20-011", "title": "A Saudi Solar Park Becomes a Shelter for Sand Gazelles", "start": 1080.37}, {"id": "good-oct20-012", "title": "Chinese Artists and The Met Collaborate to Study a Historic Mural", "start": 1192.75}, {"id": "good-oct20-013", "title": "Perseverance Sets a New Distance Record on Another World", "start": 1302.75}, {"id": "good-oct20-014", "title": "NASA and JAXA Join Forces to Investigate Mars’ Moons", "start": 1412.07}, {"id": "good-oct20-015", "title": "NASA Invites All Ages to Its Space Apps Challenge", "start": 1521.67}];
 (function setupEditionListening(){
   const audio=document.querySelector('.edition-narration audio');
   if(!audio)return;
@@ -223,6 +224,8 @@ document.addEventListener("play", event => {
   applyRate(audio);
   document.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement)applyRate(event.target);},true);
   speed.addEventListener('change',()=>{rate=Number(speed.value);write(speedKey,rate);document.querySelectorAll('audio').forEach(applyRate);});
+  const chapterSelect=document.querySelector('#narration-story');
+  const chapters=EDITION_CHAPTERS;
   let saved=Number(read(positionKey))||0;
   let restored=false;
   if(saved>0)status.textContent=`Your next listen resumes at ${format(saved)}.`;
@@ -233,11 +236,27 @@ document.addEventListener("play", event => {
   };
   audio.addEventListener('loadedmetadata',restore);
   audio.addEventListener('canplay',restore);
+  chapterSelect.innerHTML='<option value="0">Introduction</option>'+chapters.map((chapter,index)=>`<option value="${chapter.start}">${index+1}. ${esc(chapter.title)}</option>`).join('');
+  chapterSelect.addEventListener('change',()=>{
+    const target=Number(chapterSelect.value);
+    saved=target;
+    write(positionKey,target);
+    if(audio.readyState>=1){restored=true;audio.currentTime=target;}
+    else{restored=false;audio.preload='metadata';audio.load();}
+    status.textContent=target===0?'Ready at the introduction.':`Ready at story ${chapters.findIndex(chapter=>chapter.start===target)+1}. Press play to listen.`;
+  });
+  const syncChapter=()=>{
+    if(document.activeElement===chapterSelect)return;
+    const current=[...chapters].reverse().find(chapter=>audio.currentTime>=chapter.start);
+    chapterSelect.value=String(current?current.start:0);
+  };
+  audio.addEventListener('timeupdate',syncChapter);
+  audio.addEventListener('seeked',syncChapter);
   let lastSave=0;
   const save=()=>{if(!restored&&saved>0)return;write(positionKey,audio.currentTime);};
   audio.addEventListener('timeupdate',()=>{if(Date.now()-lastSave>2000){save();lastSave=Date.now();}});
   audio.addEventListener('pause',()=>{save();status.textContent=`Saved at ${format(audio.currentTime)} on this device.`;});
   audio.addEventListener('ended',()=>{saved=0;write(positionKey,0);status.textContent='Edition complete. Your next listen starts at the beginning.';});
   window.addEventListener('pagehide',save);
-  document.querySelector('#narration-restart').addEventListener('click',()=>{saved=0;restored=true;audio.currentTime=0;write(positionKey,0);status.textContent='Back at the beginning.';});
+  document.querySelector('#narration-restart').addEventListener('click',()=>{saved=0;restored=true;audio.currentTime=0;write(positionKey,0);chapterSelect.value='0';status.textContent='Back at the beginning.';});
 })();

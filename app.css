@@ -908,3 +908,5 @@ body{
 .listening-controls select,.listening-controls button{font:inherit;color:var(--text);background:#251c0f;border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:40px}
 .listening-controls select:focus-visible,.listening-controls button:focus-visible{outline:2px solid var(--gold-pale);outline-offset:3px}
 @media(max-width:600px){#narration-progress{flex-basis:100%}}
+
+#narration-story{max-width:100%;min-width:0;flex:1 1 300px}.listening-controls label{white-space:nowrap}
