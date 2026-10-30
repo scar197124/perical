@@ -35,7 +35,6 @@ function renderReader(story){
   el.innerHTML=`
     <div class="reader-topline"><span class="story-kicker">${esc(category)}</span><span class="story-position">Story ${selected+1} of ${filtered.length}</span></div>
     <h2>${esc(story.title)}</h2>
-    ${story.audioUrl?`<section class="narration-preview" aria-label="Story narration"><div><strong>Listen to this story</strong><span>Narrated by Jenny</span></div><audio controls preload="none" aria-label="${esc('Listen to '+story.title)}"><source src="${esc(story.audioUrl)}" type="audio/mpeg">Your browser does not support audio playback.</audio></section>`:story.id==='good-oct20-007'?`<section class="narration-preview" aria-label="Story narration"><div><strong>Listen to this story</strong><span>Narrated by Jenny · 1 min 44 sec</span></div><audio controls preload="none" aria-label="Listen to Mozambique Gives Mount Mabu a Community Conservation Future"><source src="assets/audio/jenny-mount-mabu.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></section>`:''}
     <div class="meta">
       <span class="chip">${esc(story.location||'Global')}</span>
       <span class="chip">${esc(category)}</span>
@@ -213,52 +212,68 @@ const EDITION_CHAPTERS=PAGE==='home'&&window.PERICAL_AUDIO_CHAPTERS?window.PERIC
   if(!audio)return;
   const speed=document.querySelector('#narration-speed');
   const status=document.querySelector('#narration-progress');
-  const positionKey=PAGE==='home'?'perical:edition:2026-10-29:position':'perical:edition:2026-10-20:position';
+  const chapterSelect=document.querySelector('#narration-story');
+  const edition=PAGE==='home'?'2026-10-29':'2026-10-20';
+  const positionKey=`perical:edition:${edition}:position`;
+  const modeKey=`perical:edition:${edition}:selection`;
   const speedKey='perical:narration:speed';
   const read=key=>{try{return localStorage.getItem(key);}catch{return null;}};
   const write=(key,value)=>{try{localStorage.setItem(key,String(value));}catch{}};
   const format=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
-  const allowed=[.75,.85,1,1.15];
-  let rate=Number(read(speedKey));
-  if(!allowed.includes(rate))rate=.85;
-  speed.value=String(rate);
-  const applyRate=target=>{target.preservesPitch=true;target.playbackRate=rate;};
-  applyRate(audio);
-  document.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement)applyRate(event.target);},true);
-  speed.addEventListener('change',()=>{rate=Number(speed.value);write(speedKey,rate);document.querySelectorAll('audio').forEach(applyRate);});
-  const chapterSelect=document.querySelector('#narration-story');
   const chapters=EDITION_CHAPTERS;
+  let selection=read(modeKey)||'full';
+  if(!chapters.some(c=>c.id===selection))selection='full';
+  let rate=Number(read(speedKey));
+  if(![.75,.85,1,1.15].includes(rate))rate=.85;
+  speed.value=String(rate);
+  audio.preservesPitch=true;audio.playbackRate=rate;
+  speed.addEventListener('change',()=>{rate=Number(speed.value);audio.playbackRate=rate;write(speedKey,rate);});
+  const label=document.querySelector('label[for="narration-story"]');
+  if(label)label.textContent='Listen to';
+  chapterSelect.innerHTML='<option value="full">Full edition</option>'+chapters.map((chapter,index)=>`<option value="${esc(chapter.id)}">${index+1}. ${esc(chapter.title)}</option>`).join('');
+  chapterSelect.value=selection;
+  const bounds=()=>{
+    const i=chapters.findIndex(c=>c.id===selection);
+    return i<0?{start:0,end:audio.duration}:{start:chapters[i].start,end:chapters[i+1]?.start??audio.duration};
+  };
   let saved=Number(read(positionKey))||0;
   let restored=false;
   if(saved>0)status.textContent=`Your next listen resumes at ${format(saved)}.`;
   const restore=()=>{
     if(restored||!Number.isFinite(audio.duration))return;
     restored=true;
-    if(saved>0&&saved<audio.duration-2)audio.currentTime=saved;
+    const b=bounds();
+    audio.currentTime=saved>=b.start&&saved<b.end-.1?saved:b.start;
   };
   audio.addEventListener('loadedmetadata',restore);
   audio.addEventListener('canplay',restore);
-  chapterSelect.innerHTML='<option value="0">Introduction</option>'+chapters.map((chapter,index)=>`<option value="${chapter.start}">${index+1}. ${esc(chapter.title)}</option>`).join('');
-  chapterSelect.addEventListener('change',()=>{
-    const target=Number(chapterSelect.value);
-    saved=target;
-    write(positionKey,target);
-    if(audio.readyState>=1){restored=true;audio.currentTime=target;}
-    else{restored=false;audio.preload='metadata';audio.load();}
-    status.textContent=target===0?'Ready at the introduction.':`Ready at story ${chapters.findIndex(chapter=>chapter.start===target)+1}. Press play to listen.`;
-  });
-  const syncChapter=()=>{
-    if(document.activeElement===chapterSelect)return;
-    const current=[...chapters].reverse().find(chapter=>audio.currentTime>=chapter.start);
-    chapterSelect.value=String(current?current.start:0);
-  };
-  audio.addEventListener('timeupdate',syncChapter);
-  audio.addEventListener('seeked',syncChapter);
-  let lastSave=0;
   const save=()=>{if(!restored&&saved>0)return;write(positionKey,audio.currentTime);};
-  audio.addEventListener('timeupdate',()=>{if(Date.now()-lastSave>2000){save();lastSave=Date.now();}});
+  chapterSelect.addEventListener('change',()=>{
+    audio.pause();selection=chapterSelect.value;write(modeKey,selection);
+    saved=bounds().start;write(positionKey,saved);
+    if(audio.readyState>=1){restored=true;audio.currentTime=saved;}
+    else{restored=false;audio.preload='metadata';audio.load();}
+    status.textContent=selection==='full'?'Full edition selected. Press play to listen.':'Story selected. Playback stops at the end of this story.';
+  });
+  audio.addEventListener('play',()=>{
+    const b=bounds();
+    if(selection!=='full'&&(audio.currentTime<b.start||audio.currentTime>=b.end-.1))audio.currentTime=b.start;
+  });
+  let lastSave=0;
+  audio.addEventListener('timeupdate',()=>{
+    const b=bounds();
+    if(selection!=='full'&&Number.isFinite(b.end)&&audio.currentTime>=b.end-.05){
+      audio.pause();write(positionKey,b.start);status.textContent='Story complete. Press play to replay, or choose another story.';return;
+    }
+    if(Date.now()-lastSave>2000){save();lastSave=Date.now();}
+  });
   audio.addEventListener('pause',()=>{save();status.textContent=`Saved at ${format(audio.currentTime)} on this device.`;});
-  audio.addEventListener('ended',()=>{saved=0;write(positionKey,0);status.textContent='Edition complete. Your next listen starts at the beginning.';});
+  audio.addEventListener('ended',()=>{write(positionKey,bounds().start);status.textContent=selection==='full'?'Edition complete.':'Story complete.';});
   window.addEventListener('pagehide',save);
-  document.querySelector('#narration-restart').addEventListener('click',()=>{saved=0;restored=true;audio.currentTime=0;write(positionKey,0);chapterSelect.value='0';status.textContent='Back at the beginning.';});
+  document.querySelector('#narration-restart').addEventListener('click',()=>{
+    saved=bounds().start;write(positionKey,saved);
+    if(audio.readyState>=1){restored=true;audio.currentTime=saved;}
+    else{restored=false;audio.preload='metadata';audio.load();}
+    status.textContent=selection==='full'?'Back at the beginning.':'Back at the start of this story.';
+  });
 })();
